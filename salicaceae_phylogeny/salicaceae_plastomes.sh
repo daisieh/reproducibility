@@ -26,7 +26,10 @@ gawk -F "\t" 'NR > 1 {print $2,$4,$5}' $INFILE > $OUTNAME.1.txt
 while read line
 do
 arr=($line);
-echo ${arr[2]} >> $OUTNAME.2.txt
+if [ -f ${arr[2]} ];
+then
+echo ${arr[2]} >> $OUTNAME.2.txt;
+fi
 done < $OUTNAME.1.txt
 
 # cd $RESULTDIR

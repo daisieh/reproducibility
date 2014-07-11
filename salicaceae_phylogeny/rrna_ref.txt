@@ -1,0 +1,2 @@
+rrna	Ath_rrna.fasta
+

@@ -1,0 +1,14 @@
+Aza_dent_603	~/Populus/TRAM/plastome/Aza_dent_DNA603/Aza_dent_DNA603.stram
+Aza_ente_604	~/Populus/TRAM/plastome/Aza_ente_DNA604/Aza_ente_DNA604.stram
+Aza_lanc_605	~/Populus/TRAM/plastome/Aza_lanc_DNA605/Aza_lanc_DNA605.stram
+Aza_micr_593	~/Populus/TRAM/plastome/Aza_micr_DNA593/Aza_micr_DNA593.stram
+Car_caly_598	~/Populus/TRAM/plastome/Car_caly_DNA598/Car_caly_DNA598.stram
+Ide_poly_621	~/Populus/TRAM/plastome/Ide_poly_DNA621/Ide_poly_DNA621.stram
+Olm_bets_615	~/Populus/TRAM/plastome/Olm_bets_DNA615/Olm_bets_DNA615.stram
+Pol_sine_614	~/Populus/TRAM/plastome/Pol_sine_DNA614/Pol_sine_DNA614.stram
+Pop_gran_216	~/Populus/TRAM/plastome/Pop_gran/Pop_gran_DNA216
+Pop_tome_620	~/Populus/TRAM/plastome/Pop_tome_DNA620/Pop_tome_DNA620.stram
+Pop_trem_221	~/Populus/TRAM/plastome/Pop_trem_DNA221/Pop_trem_DNA221.stram
+Pop_tric_153	~/Populus/TRAM/plastome/Pop_tric/Pop_tric_DNA153.stram
+Sal_erio_591	~/Populus/TRAM/plastome/Sal_erio/Sal_erio_DNA591.stram
+Sal_inte_592	~/Populus/TRAM/plastome/Sal_inte_DNA592/Sal_inte_DNA592.stram

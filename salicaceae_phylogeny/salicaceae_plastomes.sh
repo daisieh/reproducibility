@@ -53,4 +53,6 @@ perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME.trimmed.fasta $OUT
 
 # run RAxML
 seed=$RANDOM
-raxmlHPC-PTHREADS -fa -s $OUTNAME.phy -x $seed -# 100 -m GTRGAMMA -n $seed -T 16 -p $seed
+cd $RESULTDIR
+raxmlHPC-PTHREADS -fa -s ../$OUTNAME.phy -x $seed -# 100 -m GTRGAMMA -n $seed -T 16 -p $seed
+cd ..

@@ -26,12 +26,10 @@ echo $line >> $OUTNAME.0.txt;
 fi
 done < $INFILE
 
-INFILE=$OUTNAME.0.txt;
-
 # run the bam to vcf pipeline:
 
 # OUTNAME.1.txt has server,sample,path
-gawk -F " " '{print $4"\t"$2"\t"$5}' $INFILE > $OUTNAME.1.txt
+gawk -F " " '{print $4"\t"$2"\t"$5}' $OUTNAME.0.txt > $OUTNAME.1.txt
 
 cp Manihot_cp.fasta $RESULTDIR/
 
@@ -42,8 +40,17 @@ bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt Man
 cd ..
 
 # convert the vcfs to fasta:
-gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
-perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
+gawk -F " " '{print $2".vcf"}' $OUTNAME.0.txt > $OUTNAME.2.txt
+cd $RESULTDIR
+perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 300
+cd ..
 
 # trim missing data at the 0.1 missing threshold:
-perl $REPOS/phylogenomics/parsing/trim_missing.pl -in $OUTNAME.fasta -out $OUTNAME.trimmed.fasta -row 1.0 -col 0.1
+perl $REPOS/phylogenomics/parsing/trim_missing.pl -in $OUTNAME.fasta -out $OUTNAME.trimmed -row 1.0 -col 0.1
+
+# convert to phylip
+perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME.trimmed.fasta $OUTNAME.phy
+
+# run RAxML
+seed=$RANDOM
+raxmlHPC-PTHREADS -fa -s $OUTNAME.phy -x $seed -# 100 -m GTRGAMMA -n $seed -T 16 -p $seed

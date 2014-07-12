@@ -16,10 +16,23 @@ OUTNAME=$RESULTDIR/$INFILE
 
 mkdir $RESULTDIR
 
+# check to remove any files to paths that don't exist on this machine.
+while read line
+do
+arr=($line);
+if [ -f ${arr[4]} ];
+then
+echo $line >> $OUTNAME.0.txt;
+fi
+done < $INFILE
+
+INFILE=$OUTNAME.0.txt;
+
 # run the bam to vcf pipeline:
 gawk -F "\t" 'NR > 1 {print $1,$12,$13}' $INFILE > $OUTNAME.1.txt
+
 cd $RESULTDIR
-bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh $OUTNAME.1.txt
+bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
 cd ..
 
 # convert the vcfs to fasta:

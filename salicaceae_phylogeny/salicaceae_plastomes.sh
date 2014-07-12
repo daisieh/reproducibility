@@ -30,14 +30,15 @@ INFILE=$OUTNAME.0.txt;
 
 # run the bam to vcf pipeline:
 
-# index the Manihot file
-bwa index Manihot.fasta
-
 # OUTNAME.1.txt has server,sample,path
 gawk -F " " '{print $4"\t"$2"\t"$5}' $INFILE > $OUTNAME.1.txt
 
+cp Manihot_cp.fasta $RESULTDIR/
+
 cd $RESULTDIR
-bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt ../Manihot_cp.fasta
+# index the Manihot file
+bwa index Manihot_cp.fasta
+bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt Manihot_cp.fasta
 cd ..
 
 # convert the vcfs to fasta:

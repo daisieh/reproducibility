@@ -56,3 +56,8 @@ seed=$RANDOM
 cd $RESULTDIR
 raxmlHPC-PTHREADS -fa -s ../$OUTNAME.phy -x $seed -# 100 -m GTRGAMMA -n $seed -T 16 -p $seed
 cd ..
+
+# write the final tree to a nexus file:
+printf "#NEXUS\n\nbegin TREES;\ntree best=\n" > $OUTNAME.tre;
+cat RAxML_bipartitions.$seed >> $OUTNAME.tre;
+printf "end;" >> $OUTNAME.tre;

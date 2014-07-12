@@ -9,9 +9,9 @@ fi
 
 # a file with the list of samples:
 #1DNA	2samplename	3aTRAM	4server	5BAMpath
-INFILE=samples.txt
+INFILE=salicaceae.txt
 
-RESULTDIR=results
+RESULTDIR=plastome_results
 OUTNAME=$RESULTDIR/$INFILE
 
 mkdir $RESULTDIR

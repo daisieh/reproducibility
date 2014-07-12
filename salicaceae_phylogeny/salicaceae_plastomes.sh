@@ -59,5 +59,5 @@ cd ..
 
 # write the final tree to a nexus file:
 printf "#NEXUS\n\nbegin TREES;\ntree best=\n" > $OUTNAME.tre;
-cat RAxML_bipartitions.$seed >> $OUTNAME.tre;
+cat $RESULTDIR/RAxML_bipartitions.$seed >> $OUTNAME.tre;
 printf "end;" >> $OUTNAME.tre;

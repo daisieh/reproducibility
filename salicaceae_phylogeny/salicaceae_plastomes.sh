@@ -35,7 +35,7 @@ gawk -F " " '{print $2"\t"$4"\t"$5}' $INFILE > $OUTNAME.1.txt
 
 
 cd $RESULTDIR
-bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh $OUTNAME.2.txt Manihot_cp.fasta
+bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.2.txt ../Manihot_cp.fasta
 cd ..
 
 # convert the vcfs to fasta:

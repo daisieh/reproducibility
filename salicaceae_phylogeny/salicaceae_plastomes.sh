@@ -30,8 +30,8 @@ INFILE=$OUTNAME.0.txt;
 
 # run the bam to vcf pipeline:
 
-# OUTNAME.1.txt has sample,server,path
-gawk -F " " '{print $2"\t"$4"\t"$5}' $INFILE > $OUTNAME.1.txt
+# OUTNAME.1.txt has server,sample,path
+gawk -F " " '{print $4"\t"$2"\t"$5}' $INFILE > $OUTNAME.1.txt
 
 
 cd $RESULTDIR
@@ -39,7 +39,7 @@ bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt ../
 cd ..
 
 # convert the vcfs to fasta:
-gawk -F " " '{print $1".vcf"}' $INFILE > $OUTNAME.2.txt
+gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
 perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 
 # trim missing data at the 0.1 missing threshold:

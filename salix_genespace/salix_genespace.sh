@@ -10,6 +10,12 @@
 OUTDIR=$1
 REFDIR=$OUTDIR/pop_refs
 
+if [ -n $REPOS ];
+then
+REPOS=$HOME;
+fi
+
+
 # The Populus trichocarpa reference annotation is available at: http://genome.jgi.doe.gov/pages/dynamicOrganismDownload.jsf?organism=Ptrichocarpa#
 POTRI_GFF=Ptrichocarpa_210_gene_exons.gff3
 

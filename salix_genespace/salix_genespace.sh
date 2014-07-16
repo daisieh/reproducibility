@@ -43,33 +43,33 @@ mkdir $REFDIR/cds
 while read g
 do
 	perl $REPOS/phylogenomics/filtering/select_one_from_fasta.pl -fasta $REFDIR/$g.fasta -outputfile $REFDIR/cds/$g -seq $g.1.CDS.1
-
+	printf "$g\t$REFDIR/cds/$g.fasta" >> $OUTDIR/genelist.txt
 done < $OUTDIR/ref_genes.txt
 
 # run aTRAM BasicPipeline on all genes
-perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $OUTDIR/$SALIX.txt -targets /home/daisieh/cds_fragments/cds00 -out /home/daisieh/cds00 -processes 8 -iter 5 -max_memory 8 -debug
+perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $OUTDIR/$SALIX.txt -targets $OUTDIR/genelist.txt -out $OUTDIR -processes 8 -iter 5 -max_memory 8 -debug
 
-for chr in Chr01 Chr02 Chr03 Chr04 Chr05 Chr06 Chr07 Chr08 Chr09 Chr10 Chr11 Chr12 Chr13 Chr14 Chr15 Chr16 Chr17 Chr18 Chr19 ChrT
+mkdir $OUTDIR/$SALIX/best
+mv $OUTDIR/$SALIX/*.best.fasta $OUTDIR/$SALIX/best/
 
-do
+# validate genes:
+cat $REFDIR/cds/* > $REFDIR/cdslist.fasta
+perl $REPOS/aTRAM/Postprocessing/ValidateGenes.pl -input $OUTDIR/best/ -reference $REFDIR/cdslist.fasta -output $OUTDIR/validate
+
 # filter single genes.
-perl $REPOS/phylogenomics/filtering/filter_atram_single_copy_only.pl /home/daisieh/complete_chrs/$chr/validate/results.txt /home/daisieh/complete_chrs/$chr/best /home/daisieh/complete_chrs/$chr/single
+perl $REPOS/phylogenomics/filtering/filter_atram_single_copy_only.pl -validate $OUTDIR/validate/results.txt -contig $OUTDIR/best -out $OUTDIR/single
 # output is in $chr/single/genelist.txt
 
 # blast list
-perl $REPOS/phylogenomics/parsing/blast_list.pl -ref $refdir -gene /home/daisieh/complete_chrs/$chr/single/genelist.txt -fasta /home/daisieh/complete_chrs/$chr/single/ -out /home/daisieh/complete_chrs/$chr/blast
+perl $REPOS/phylogenomics/parsing/blast_list.pl -ref $REFDIR/cds -gene $OUTDIR/single/genelist.txt -fasta $OUTDIR/single/ -out $OUTDIR/blast
 
 # filter list for best hits
-cd /home/daisieh/complete_chrs/$chr/
-perl $REPOS/phylogenomics/filtering/cdscutoff.pl /home/daisieh/complete_chrs/$chr/single/genelist.txt /home/daisieh/complete_chrs/$chr/blast/ 90
-
-# slice files for reference
-perl $REPOS/phylogenomics/parsing/slice_gff_from_fasta.pl -gff /home/daisieh/refs/Ptrichocarpa_210_gene_exons.gff3 -fasta /home/daisieh/refs/Chrs/$chr.fasta -out $refdir -gene /home/daisieh/complete_chrs/$chr/cutoff.90
+cd $OUTDIR
+perl $REPOS/phylogenomics/filtering/cdscutoff.pl single/genelist.txt blast/ 90
+cd ..
 
 # merge gff
-perl $REPOS/phylogenomics/parsing/merge_to_gff.pl -gff /home/daisieh/refs/Ptrichocarpa_210_gene_exons.gff3 -gene /home/daisieh/complete_chrs/$chr/cutoff.90 -fasta /home/daisieh/complete_chrs/$chr/single/ -blast /home/daisieh/complete_chrs/$chr/blast -out /home/daisieh/complete_chrs/$chr/gff
-
-done
+perl $REPOS/phylogenomics/parsing/merge_to_gff.pl -gff $POTRI_GFF -gene $OUTDIR/cutoff.90 -fasta $OUTDIR/single/ -blast $OUTDIR/blast -out $OUTDIR/gff
 
 # rename all to Ser.ph:
 FILES=/home/daisieh/complete_chrs/gff/*

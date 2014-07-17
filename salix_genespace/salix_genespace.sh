@@ -72,22 +72,37 @@ cd ..
 perl $REPOS/phylogenomics/parsing/merge_to_gff.pl -gff $POTRI_GFF -gene $OUTDIR/cutoff.90 -fasta $OUTDIR/single/ -blast $OUTDIR/blast -out $OUTDIR/gff
 
 # rename all to Ser.ph:
-FILES=/home/daisieh/complete_chrs/gff/*
-for file in $FILES
+for file in $OUTDIR/gff
 do
 sed 's/Potri/Ser.ph.Potri/g' $file > Ser.ph.$file
 rm -f $file
 done
 
-mv /home/daisieh/complete_chrs/gff/ /home/daisieh/complete_chrs/Ser_Potri_ph
+mv $OUTDIR/gff/ $OUTDIR/Ser_Potri_ph
 
 # make list of these gff files:
-ls -1 /home/daisieh/complete_chrs/Ser_Potri_ph > /home/daisieh/complete_chrs/gfflist.txt
+ls -1 $OUTDIR/Ser_Potri_ph > $OUTDIR/gfflist.txt
 
 # set up the pairwise comparison:
 while read p
 do
 echo $p
-perl $REPOS/phylogenomics/pipelines/pairwise_ser2pop_cds.pl -gff /home/daisieh/complete_chrs/Ser_Potri_ph/$p -ref $refdir -out /home/daisieh/complete_chrs/pairwise
-done < /home/daisieh/complete_chrs/gfflist.txt
+perl $REPOS/phylogenomics/pipelines/pairwise_ser2pop_cds.pl -gff $OUTDIR/Ser_Potri_ph/$p -ref $refdir -out $OUTDIR/pairwise
+done < $OUTDIR/gfflist.txt
 
+# do comparisons on the pairwise files:
+for f in $OUTDIR/pairwise/*
+do
+filename=$(basename $f)
+genename="${filename%.*}"
+refname="${genename#Ser.ph.}";
+
+# align the CDSes and trim to ref.
+mafft --op 1 --genafpair --maxiterate 1000 $OUTDIR/pairwise/$filename > $OUTDIR/aligned/$filename
+perl $REPOS/phylogenomics/parsing/trim_to_ref.pl -fasta $OUTDIR/aligned/$filename -out $OUTDIR/trimmed/$filename -ref $refname.1.CDS -include_ref --noalign;
+
+# run analyses:
+perl $REPOS/phylogenomics/analysis/third_codon_pos.pl $OUTDIR/trimmed/$genename.fasta
+perl $REPOS/phylogenomics/analysis/diffs.pl $OUTDIR/trimmed/$genename.s.fasta >> $OUTDIR/results.txt
+perl $REPOS/phylogenomics/analysis/diffs.pl $OUTDIR/trimmed/$genename.ns.fasta >> $OUTDIR/results.txt
+done

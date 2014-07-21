@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # sample file has host sample path
-$SAMPLE=$1
+SAMPLE=$1
 
 # pairwise fasta for "genome"
-$FASTA=$2
+FASTA=$2
 bwa index $FASTA
 
 python $REPOS/phylogenomics/python/bwa_to_bam.py -i $SAMPLE -r $FASTA -p 8 -n 10000000

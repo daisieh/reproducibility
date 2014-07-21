@@ -7,7 +7,8 @@ SAMPLE=$1
 FASTA=$2
 bwa index $FASTA
 
-python $REPOS/phylogenomics/python/bwa_to_bam.py -i $SAMPLE -r $FASTA -p 8 -n 10000000
+python $REPOS/phylogenomics/python/bwa_to_bam.py -i $SAMPLE -r $FASTA -p 8 -n 100000000
+
 # remove unmapped pairs
 samtools view -F 4 -b $samplename.bam > $samplename.reduced.bam
 

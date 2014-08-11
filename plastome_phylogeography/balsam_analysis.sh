@@ -20,9 +20,10 @@ mkdir $RESULTDIR
 while read line
 do
 arr=($line);
-echo ${arr[12]};
-if [ -f ${arr[12]} ];
+file=${arr[11]};
+if [ -f $file ]
 then
+echo $file;
 echo $line >> $OUTNAME.0.txt;
 fi
 done < $INFILE

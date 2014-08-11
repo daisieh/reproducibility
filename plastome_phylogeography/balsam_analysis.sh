@@ -30,7 +30,7 @@ INFILE=$OUTNAME.0.txt;
 
 # run the bam to vcf pipeline:
 
-OUTNAME.1.txt has server,sample,path
+# OUTNAME.1.txt has server,sample,path
 gawk -F " " '{print $12"\t"$1"\t"$13}' $INFILE > $OUTNAME.1.txt
 #
 cd $RESULTDIR

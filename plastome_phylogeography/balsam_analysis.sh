@@ -23,7 +23,6 @@ arr=($line);
 echo ${arr[12]};
 if [ -f ${arr[12]} ];
 then
-#echo ${arr[1]};
 echo $line >> $OUTNAME.0.txt;
 fi
 done < $INFILE

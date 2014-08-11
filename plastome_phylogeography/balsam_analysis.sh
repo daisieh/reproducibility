@@ -4,7 +4,7 @@
 
 if [ -n $REPOS ];
 then
-REPOS="~";
+REPOS=$HOME;
 fi
 
 # a file with the list of samples:

@@ -33,7 +33,7 @@ INFILE=$OUTNAME.0.txt;
 # run the bam to vcf pipeline:
 
 # OUTNAME.1.txt has server,sample,path
-gawk -F " " '{print $12"\t"$1"\t"$13}' $INFILE > $OUTNAME.1.txt
+gawk -F " " '{print $11"\t"$1"\t"$12}' $INFILE > $OUTNAME.1.txt
 #
 cd $RESULTDIR
 bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt

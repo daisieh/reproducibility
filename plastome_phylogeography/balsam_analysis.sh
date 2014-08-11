@@ -23,7 +23,6 @@ arr=($line);
 file=${arr[11]};
 if [ -f $file ]
 then
-echo $file;
 echo $line >> $OUTNAME.0.txt;
 fi
 done < $INFILE
@@ -40,7 +39,7 @@ bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
 cd ..
 #
 # convert the vcfs to fasta:
-gawk -F "\t" 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt
+gawk -F " " 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt
 perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 #
 # trim missing data at the 0.1 missing threshold:

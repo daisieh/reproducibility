@@ -9,7 +9,13 @@ fi
 
 # a file with the list of samples:
 #1file_id	2sample	3DNA_code	4ADM_#	5species	6POP_CODE	7POPNAME	8POP#	9GROUP	10LONG	11LAT	12server	13path	14plastome
+
+INFILE=$1;
+if [ -z $1 ];
+then
 INFILE=balsam_sample_data.txt
+fi
+
 
 RESULTDIR=balsam_analysis
 OUTNAME=$RESULTDIR/$INFILE

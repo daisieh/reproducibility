@@ -1,0 +1,10 @@
+BEGIN PAUP;
+
+set increase=auto criterion=parsimony maxtrees=1000 increase=no;
+Hsearch Start=stepwise addseq=random;
+contree all/treefile=OUTNAME.tre;
+gettrees file=OUTNAME.tre;
+describetrees all/plot=phylogram root=outgroup brlens=yes;
+savetrees file=OUTNAME_cons.tre brlens=yes;
+
+END;

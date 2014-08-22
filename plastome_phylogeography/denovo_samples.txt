@@ -1,0 +1,4 @@
+LAB13_DNA942	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-01/IX1907/C2F5EACXX_2/IX1907_C2F5EACXX_2_CCGCAA.bam
+DEN13_DNA793	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0974/C14ERACXX_1/IX0974_C14ERACXX_1_TATAAT.bam
+RNA9_DNA1188	east	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-11-06/IX2049/C2PVTACXX_5/IX2049_C2PVTACXX_5_ATGAGC.bam
+NWL1105_DNA778	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-12/IX0986/D18W4ACXX_8/IX0986_D18W4ACXX_8_CCACGC.bam

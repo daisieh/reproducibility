@@ -69,12 +69,15 @@ count=1
 while read seq
 do
 echo ">$sample.$count\n$seq\n" > $sample.$count.fasta
-echo "$sample.$count\t$sample.$count.fasta\n" >> $sample.targets.txt
+echo "$sample.$count#$sample.$count.fasta\n" >> $sample.targets.txt
 count=$(($count+1))
 done < $sample.to_atram.txt
-echo "$sample\t$aTRAMdbs/$sample.atram" > $sample.samples.txt
+echo "$sample#$aTRAMdbs/$sample.atram" > $sample.samples.txt
+sed "s/#/\t/g" < $sample.targets.txt > $sample.targets.txt
+sed "s/#/\t/g" < $sample.samples.txt > $sample.samples.txt
 
 #### aTRAM those ambiguous sections
+echo "  aTRAM ambiguous sections"
 perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
 
 #### Now, take the best seq from each one and align it to the draft:

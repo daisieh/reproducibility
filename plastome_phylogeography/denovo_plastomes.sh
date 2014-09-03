@@ -69,8 +69,9 @@ rm $sample.targets.txt
 count=1
 while read seq
 do
-echo ">$sample.$count\n$seq\n" > $sample.$count.fasta
-echo "$sample.$count#$sample.$count.fasta\n" >> $sample.targets1.txt
+echo ">$sample.$count" > $sample.$count.fasta
+echo ">$seq" >> $sample.$count.fasta
+echo "$sample.$count#$sample.$count.fasta" >> $sample.targets1.txt
 count=$(($count+1))
 done < $sample.to_atram.txt
 echo "$sample#$aTRAMdbs/$sample.atram" > $sample.samples1.txt

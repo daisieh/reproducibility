@@ -70,12 +70,14 @@ count=1
 while read seq
 do
 echo ">$sample.$count\n$seq\n" > $sample.$count.fasta
-echo "$sample.$count#$sample.$count.fasta\n" >> $sample.targets.txt
+echo "$sample.$count#$sample.$count.fasta\n" >> $sample.targets1.txt
 count=$(($count+1))
 done < $sample.to_atram.txt
-echo "$sample#$aTRAMdbs/$sample.atram" > $sample.samples.txt
-sed "s/#/\t/g" < $sample.targets.txt > $sample.targets.txt
-sed "s/#/\t/g" < $sample.samples.txt > $sample.samples.txt
+echo "$sample#$aTRAMdbs/$sample.atram" > $sample.samples1.txt
+sed "s/#/\t/g" < $sample.targets1.txt > $sample.targets.txt
+sed "s/#/\t/g" < $sample.samples1.txt > $sample.samples.txt
+rm $sample.targets1.txt
+rm $sample.samples1.txt
 
 #### aTRAM those ambiguous sections
 echo "  aTRAM ambiguous sections"

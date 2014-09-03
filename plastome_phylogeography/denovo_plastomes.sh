@@ -88,7 +88,7 @@ perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -targe
 cat $sample.plastome.cleaned.fasta > $sample.plastome.toaln.fasta
 for ((i=1;i<=$count;i++))
 do
-head -n 2 $sample.atram/$sample.$i.best.fasta >> $sample.plastome.toaln.fasta
+head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.toaln.fasta
 done
 
 #### align these with mafft

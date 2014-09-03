@@ -82,7 +82,7 @@ rm $sample.samples1.txt
 
 #### aTRAM those ambiguous sections
 echo "  aTRAM ambiguous sections"
-perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
+# perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
 
 #### Now, take the best seq from each one and align it to the draft:
 cat $sample.plastome.cleaned.fasta > $sample.plastome.toaln.fasta

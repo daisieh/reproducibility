@@ -70,7 +70,7 @@ while read seq
 do
 echo ">$sample.$count\n$seq\n" > $sample.$count.fasta
 echo "$sample.$count\t$sample.$count.fasta\n" >> $sample.targets.txt
-count=count+1
+count=$count+1
 done < $sample.to_atram.txt
 echo "$sample\t$aTRAMdbs/$sample.atram" > $sample.samples.txt
 

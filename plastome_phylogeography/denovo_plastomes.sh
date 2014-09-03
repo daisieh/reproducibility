@@ -74,7 +74,7 @@ echo "$seq" >> $sample.$count.fasta
 echo "$sample.$count#$sample.$count.fasta" >> $sample.targets1.txt
 count=$(($count+1))
 done < $sample.to_atram.txt
-echo "$sample#$aTRAMdbs/$sample.atram" > $sample.samples1.txt
+echo "$sample#aTRAMdbs/$sample.atram" > $sample.samples1.txt
 sed "s/#/\t/g" < $sample.targets1.txt > $sample.targets.txt
 sed "s/#/\t/g" < $sample.samples1.txt > $sample.samples.txt
 rm $sample.targets1.txt

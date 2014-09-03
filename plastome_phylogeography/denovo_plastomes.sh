@@ -17,7 +17,7 @@ done < $1
 samplefile="samplefile.txt"
 
 #### Take raw files and subset part for analysis:
-python $REPOS/phylogenomics/python/subset_bam.py -i $samplefile -n 6 -p 4
+# python $REPOS/phylogenomics/python/subset_bam.py -i $samplefile -n 6 -p 4
 
 #### $samplefile has a sample file with server, name, path
 while read line
@@ -70,7 +70,7 @@ while read seq
 do
 echo ">$sample.$count\n$seq\n" > $sample.$count.fasta
 echo "$sample.$count\t$sample.$count.fasta\n" >> $sample.targets.txt
-count=$count+1
+count=$(($count+1))
 done < $sample.to_atram.txt
 echo "$sample\t$aTRAMdbs/$sample.atram" > $sample.samples.txt
 

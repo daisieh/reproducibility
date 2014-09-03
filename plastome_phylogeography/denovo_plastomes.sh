@@ -79,9 +79,9 @@ perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -targe
 
 #### Now, take the best seq from each one and align it to the draft:
 cat $sample.plastome.cleaned.fasta > $sample.plastome.toaln.fasta
-for reg in {1..$count}
+for ((i=1;i<=$count;i++))
 do
-head -n 2 $sample.atram/$sample.$reg.best.fasta >> $sample.plastome.toaln.fasta
+head -n 2 $sample.atram/$sample.$i.best.fasta >> $sample.plastome.toaln.fasta
 done
 
 #### align these with mafft

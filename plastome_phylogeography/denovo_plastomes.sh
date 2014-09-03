@@ -4,6 +4,7 @@
 reffile="trichocarpa_cp.gb"
 
 #### check to remove any files to paths that don't exist on this machine.
+rm samplefile.txt
 while read line
 do
 arr=($line);

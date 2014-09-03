@@ -65,6 +65,7 @@ sample=${arr[1]}
 #### find sections of ambiguity in the cleaned plastome:
 grep -o -E ".{100}[Nn]+.{100}" $sample.plastome.cleaned.fasta > $sample.to_atram.txt
 
+rm $sample.targets.txt
 count=1
 while read seq
 do

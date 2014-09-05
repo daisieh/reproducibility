@@ -27,6 +27,6 @@ echo $line > $sample.txt
 ref=$sample.plastome.final.fasta
 bwa index $ref
 python ~/phylogenomics/python/bwa_to_bam.py -i $sample.txt -r $ref -p 8 -n 10000000
-python ~/phylogenomics/python/bam_to_vcf.py -i $f -r $ref -p 8
+python ~/phylogenomics/python/bam_to_vcf.py -i $sample.txt -r $ref -p 8
 
 done < $samplefile

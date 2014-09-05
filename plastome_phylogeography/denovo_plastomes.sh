@@ -104,17 +104,7 @@ perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta >
 fi
 done
 
-# cat $sample.plastome.cleaned.fasta > $sample.plastome.toaln.fasta
-# for ((i=1;i<$count;i++))
-# do
-# head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.toaln.fasta
-# done
-#
-# #### align these with mafft
-#
-# mafft --auto $sample.plastome.toaln.fasta > $sample.plastome.aln.fasta
-#
-# #### consolidate into consensus sequence
-perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.alns.fasta > $sample.plastome.final.fasta
+#### final sequence is the last one:
+cp $sample.plastome.$i.fasta $sample.plastome.final.fasta
 
 done < $samplefile

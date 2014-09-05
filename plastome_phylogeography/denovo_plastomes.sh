@@ -92,9 +92,14 @@ do
 j=$(($i-1))
 head -n 1 $sample.plastome.$j.fasta > $sample.plastome.$i.fasta
 tail -n +2 $sample.plastome.$j.fasta | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
+
+#### if there were atram results, align and consensus:
+if [ -f $sample.atram/$sample/$sample.$i.best.fasta ]
+then
 head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
 mafft --auto $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta
 perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta > $sample.plastome.$i.fasta
+fi
 done
 
 # cat $sample.plastome.cleaned.fasta > $sample.plastome.toaln.fasta

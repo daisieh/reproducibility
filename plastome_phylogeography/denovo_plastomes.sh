@@ -85,10 +85,13 @@ echo "  making fasta from bam"
 # perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
 
 #### Now, take the best seq from each one and align it to the draft:
+head -n 1 $sample.plastome.cleaned.fasta > $sample.plastome.0.fasta
+tail -n +2 $sample.plastome.cleaned.fasta | sed s/[Nn]/-/g >> $sample.plastome.0.fasta
 for ((i=1;i<$count;i++))
 do
-head -n 1 $sample.plastome.cleaned.fasta > $sample.plastome.$i.fasta
-tail -n +2 $sample.plastome.cleaned.fasta | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
+j=$(($i-1))
+head -n 1 $sample.plastome.$j.fasta > $sample.plastome.$i.fasta
+tail -n +2 $sample.plastome.$j.fasta | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
 head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
 mafft --auto $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta
 perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta >> $sample.plastome.alns.fasta

@@ -94,7 +94,7 @@ head -n 1 $sample.plastome.$j.fasta > $sample.plastome.$i.fasta
 tail -n +2 $sample.plastome.$j.fasta | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
 head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
 mafft --auto $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta
-perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta >> $sample.plastome.alns.fasta
+perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta > $sample.plastome.$i.fasta
 done
 
 # cat $sample.plastome.cleaned.fasta > $sample.plastome.toaln.fasta

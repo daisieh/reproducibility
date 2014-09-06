@@ -22,11 +22,13 @@ do
 arr=($line);
 sample=${arr[1]}
 echo "processing $sample..."
-echo "  making fasta from bam"
 echo $line > $sample.txt
 ref=$sample.plastome.final.fasta
 bwa index $ref
 python ~/phylogenomics/python/bwa_to_bam.py -i $sample.txt -r $ref -p 8 -n 10000000
-python ~/phylogenomics/python/bam_to_vcf.py -i $sample.txt -r $ref -p 8
+
+samtools mpileup -B -C50 -f $ref -u $sample.sorted.bam > $sample.bcf
+/usr/local/samtools/bcftools/bcftools view -c $sample.bcf > $sample.vcf
+rm $sample.bcf
 
 done < $samplefile

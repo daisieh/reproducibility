@@ -102,7 +102,9 @@ head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fas
 mafft --retree 2 --maxiterate 0 --op 10 $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta
 perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta > $sample.plastome.$i.fasta
 #### final sequence is the last one:
-cp $sample.plastome.$i.fasta $sample.plastome.final.fasta
+#### remove gaps in sequence:
+head -n 1 $sample.plastome.$i.fasta > $sample.plastome.final.fasta
+tail -n +2 $sample.plastome.$i.fasta | sed s/-//g >> $sample.plastome.final.fasta
 fi
 done
 

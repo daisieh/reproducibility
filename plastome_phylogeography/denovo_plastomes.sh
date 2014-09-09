@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #### for each de novo sample:
-reffile="trichocarpa_cp.gb"
+reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
 
 #### check to remove any files to paths that don't exist on this machine.
 samplefile="samplefile.txt"

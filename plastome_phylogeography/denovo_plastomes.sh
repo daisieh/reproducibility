@@ -52,9 +52,6 @@ do
 	#### make draft plastome
 	echo "  assembling draft plastome from contigs"
 	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome
-
-	#### clean draft plastome
-	perl $REPOS/phylogenomics/plastome/clean_cp.pl -ref $reffile -contig $sample.plastome.draft.fasta -out $sample.plastome
 done < $samplefile
 
 echo "Finished initial assembly"
@@ -66,8 +63,15 @@ do
 	sample=${arr[1]}
 	echo "filling in $sample..."
 
-	#### find sections of ambiguity in the cleaned plastome:
-	grep -o -E ".{100}[Nn]+.{100}" $sample.plastome.cleaned.fasta > $sample.to_atram.txt
+	echo -e ">$sample\n" > $sample.plastome.final.fasta
+	gawk '$0 !~ />/ { print $0; }' $sample.plastome.draft.fasta >> $sample.plastome.final.fasta
+
+	#### find sections of ambiguity in the draft plastome:
+	grep -o -E ".{100}[Nn]+.{100}" $sample.plastome.final.fasta > $sample.to_atram.txt
+
+	#### find ends of contigs also:
+	grep -o -E "^.{100}" $sample.plastome.final.fasta >> $sample.to_atram.txt
+	grep -o -E ".{100}$" $sample.plastome.final.fasta >> $sample.to_atram.txt
 
 	rm $sample.targets.txt
 	count=1
@@ -85,8 +89,8 @@ do
 	perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
 
 	#### Now, take the best seq from each one and align it to the draft:
-	head -n 1 $sample.plastome.cleaned.fasta > $sample.plastome.0.fasta
-	tail -n +2 $sample.plastome.cleaned.fasta | sed s/[Nn]/-/g >> $sample.plastome.0.fasta
+	head -n 1 $sample.plastome.final.fasta > $sample.plastome.0.fasta
+	tail -n +2 $sample.plastome.final.fasta | sed s/[Nn\n]/-/g >> $sample.plastome.0.fasta
 	for ((i=1;i<$count;i++))
 	do
 		#### if there were atram results, align and consensus:
@@ -106,4 +110,7 @@ do
 			tail -n +2 $sample.plastome.$i.fasta | sed s/-//g >> $sample.plastome.final.fasta
 		fi
 	done
+
+	#### clean draft plastome
+	perl $REPOS/phylogenomics/plastome/clean_cp.pl -ref $reffile -contig $sample.plastome.final.fasta -out $sample.plastome
 done < $samplefile

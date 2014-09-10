@@ -100,7 +100,8 @@ do
 			j=$(($i-1))
 			echo ">$sample.plastome.$j" > $sample.plastome.$i.fasta
 			tail -n +2 $sample.plastome.$j.fasta | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
-			head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
+			head -n 1 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
+			head -n 2 $sample.atram/$sample/$sample.$i.best.fasta | tail -n 1 | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
 
 			#### align with large gap-opening penalty: gaps already exist, we don't need to add more.
 			mafft --retree 2 --maxiterate 0 --op 10 $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta 2>/dev/null

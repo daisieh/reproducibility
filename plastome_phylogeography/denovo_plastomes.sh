@@ -23,12 +23,12 @@ samplefile="samplefile.txt"
 # #### Take raw files and subset part for analysis:
 # python $REPOS/phylogenomics/python/subset_bam.py -i $samplefile -n 6 -p 4
 #
-# #### $samplefile has a sample file with server, name, path
-# while read line
-# do
-# 	arr=($line);
-# 	sample=${arr[1]}
-# 	echo "processing $sample..."
+#### $samplefile has a sample file with server, name, path
+while read line
+do
+	arr=($line);
+	sample=${arr[1]}
+	echo "processing $sample..."
 # 	echo "  making fasta from bam"
 # 	$REPOS/phylogenomics/converting/bam_to_fasta.sh $sample.small.bam $sample
 #
@@ -51,10 +51,10 @@ samplefile="samplefile.txt"
 #
 # 	#### make draft plastome
 # 	echo "  assembling draft plastome from contigs"
-# 	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome
-# done < $samplefile
+	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome -join
+done < $samplefile
 #
-# echo "Finished initial assembly"
+echo "Finished initial assembly"
 # #### further cleanup steps
 
 while read line
@@ -63,30 +63,30 @@ do
 	sample=${arr[1]}
 	echo "filling in $sample..."
 #
-# 	echo -e ">$sample\n" > $sample.plastome.final.fasta
-# 	gawk '$0 !~ />/ { print $0; }' $sample.plastome.draft.fasta >> $sample.plastome.final.fasta
+	echo -e ">$sample\n" > $sample.plastome.final.fasta
+	gawk '$0 !~ />/ { print $0; }' $sample.plastome.draft.fasta >> $sample.plastome.final.fasta
 #
-# 	#### find sections of ambiguity in the draft plastome:
-# 	grep -o -E ".{100}[Nn]+.{100}" $sample.plastome.final.fasta > $sample.to_atram.txt
+	#### find sections of ambiguity in the draft plastome:
+	grep -o -E ".{100}[Nn]+.{100}" $sample.plastome.final.fasta > $sample.to_atram.txt
 #
-# 	#### find ends of contigs also:
-# 	grep -o -E "^.{100}" $sample.plastome.final.fasta >> $sample.to_atram.txt
-# 	grep -o -E ".{100}$" $sample.plastome.final.fasta >> $sample.to_atram.txt
+	#### find ends of contigs also:
+	grep -o -E "^.{100}" $sample.plastome.final.fasta >> $sample.to_atram.txt
+	grep -o -E ".{100}$" $sample.plastome.final.fasta >> $sample.to_atram.txt
 #
-# 	rm $sample.targets.txt
-# 	count=1
-# 	while read seq
-# 	do
-# 		echo ">$sample.$count" > $sample.$count.fasta
-# 		echo "$seq" >> $sample.$count.fasta
-# 		echo -e "$sample.$count\t$sample.$count.fasta" >> $sample.targets.txt
-# 		count=$(($count+1))
-# 	done < $sample.to_atram.txt
-# 	echo -e "$sample\taTRAMdbs/$sample.atram" > $sample.samples.txt
+	rm $sample.targets.txt
+	count=1
+	while read seq
+	do
+		echo ">$sample.$count" > $sample.$count.fasta
+		echo "$seq" >> $sample.$count.fasta
+		echo -e "$sample.$count\t$sample.$count.fasta" >> $sample.targets.txt
+		count=$(($count+1))
+	done < $sample.to_atram.txt
+	echo -e "$sample\taTRAMdbs/$sample.atram" > $sample.samples.txt
 #
-# 	#### aTRAM those ambiguous sections
-# 	echo "  aTRAM ambiguous sections"
-# 	perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
+	#### aTRAM those ambiguous sections
+	echo "  aTRAM ambiguous sections"
+	perl $REPOS/aTRAM/Pipelines/BasicPipeline.pl -samples $sample.samples.txt -target $sample.targets.txt -frac 0.3 -iter 5 -out $sample.atram
 
 	#### Now, take the best seq from each one and align it to the draft:
 	head -n 1 $sample.plastome.final.fasta > $sample.plastome.0.fasta

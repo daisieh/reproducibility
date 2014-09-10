@@ -102,7 +102,7 @@ do
 			head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
 
 			#### align with large gap-opening penalty: gaps already exist, we don't need to add more.
-			mafft --retree 2 --maxiterate 0 --op 10 $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta
+			mafft --retree 2 --maxiterate 0 --op 10 $sample.plastome.$i.fasta > $sample.plastome.$i.aln.fasta 2>/dev/null
 			perl $REPOS/phylogenomics/filtering/consensus.pl $sample.plastome.$i.aln.fasta > $sample.plastome.$i.fasta
 			#### final sequence is the last one:
 			#### remove gaps in sequence:

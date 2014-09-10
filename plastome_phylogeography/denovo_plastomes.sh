@@ -91,7 +91,7 @@ do
 	#### Now, take the best seq from each one and align it to the draft:
 	head -n 1 $sample.plastome.final.fasta > $sample.plastome.0.fasta
 	tail -n +2 $sample.plastome.final.fasta | sed s/[Nn\n]/-/g >> $sample.plastome.0.fasta
-	for ((i=1;i<$count;i++))
+	for ((i=1;i<10;i++))
 	do
 		#### if there were atram results, align and consensus:
 		if [ -f $sample.atram/$sample/$sample.$i.best.fasta ]

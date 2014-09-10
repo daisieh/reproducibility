@@ -96,8 +96,9 @@ do
 		#### if there were atram results, align and consensus:
 		if [ -f $sample.atram/$sample/$sample.$i.best.fasta ]
 		then
+			echo "aligning atram results $i"
 			j=$(($i-1))
-			head -n 1 $sample.plastome.$j.fasta > $sample.plastome.$i.fasta
+			echo ">$sample.plastome.$j" > $sample.plastome.$i.fasta
 			tail -n +2 $sample.plastome.$j.fasta | sed s/[Nn]/-/g >> $sample.plastome.$i.fasta
 			head -n 2 $sample.atram/$sample/$sample.$i.best.fasta >> $sample.plastome.$i.fasta
 

@@ -36,8 +36,8 @@ do
 	echo "  subset part (6GB) of the bam file"
 	samtools view $location | head -n 3000000 | samtools view -S -u - > $sample.small.bam
 
-	echo "  making fastq from bam"
-	$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
+	echo "  making fasta from bam"
+	$REPOS/phylogenomics/converting/bam_to_fasta.sh $sample.small.bam $sample
 #
 	#### aTRAM libs
 	echo "  making aTRAM db"
@@ -50,7 +50,7 @@ do
 #
 	#### use velvet
 	echo "  assembling contigs with Velvet"
-	velveth $sample 31 -shortPaired -fastq -interleaved $sample.fastq
+	velveth $sample 31 -shortPaired -fasta -interleaved $sample.fasta
 	velvetg $sample -cov_cutoff 20 -ins_length 400 -min_contig_lgth 300
 #
 	#### rename contigs from NODE_2_length_25848_cov_191.293564 to $sample_

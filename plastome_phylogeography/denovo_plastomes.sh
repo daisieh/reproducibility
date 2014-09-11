@@ -30,7 +30,7 @@ while read line
 do
 	arr=($line);
 	sample=${arr[1]}
-	location=${arr[3]}
+	location=${arr[2]}
 	echo "processing $sample..."
 
 	echo "  subset part (6GB) of the bam file"

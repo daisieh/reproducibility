@@ -20,17 +20,19 @@ samplefile="samplefile.txt"
 # };
 #
 #
-# #### Take raw files and subset part for analysis:
-# python $REPOS/phylogenomics/python/subset_bam.py -i $samplefile -n 6 -p 4
-#
 #### $samplefile has a sample file with server, name, path
 while read line
 do
 	arr=($line);
 	sample=${arr[1]}
+	location=${arr[3]}
 	echo "processing $sample..."
-# 	echo "  making fasta from bam"
-# 	$REPOS/phylogenomics/converting/bam_to_fasta.sh $sample.small.bam $sample
+
+	echo "  subset part (6GB) of the bam file"
+	samtools view $location | head -n 3000000 | samtools view -S -u - > $sample.small.bam
+
+	echo "  making fastq from bam"
+	$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
 #
 # 	#### aTRAM libs
 # 	echo "  making aTRAM db"

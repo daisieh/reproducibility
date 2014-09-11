@@ -25,10 +25,10 @@ echo "processing $sample..."
 echo $line > $sample.txt
 ref=$sample.plastome.final.fasta
 
-python ~/phylogenomics/python/bowtie_align.py -i $sample.txt -r $ref -p 8 -n 10000000
+python $REPOS/phylogenomics/python/bowtie_align.py -i $sample.txt -r $ref -p 8 -n 10000000
 
 samtools mpileup -B -C50 -f $ref -u $sample.sorted.bam > $sample.bcf
-/usr/local/samtools/bcftools/bcftools view -c $sample.bcf > $sample.vcf
+bcftools view -c $sample.bcf > $sample.vcf
 rm $sample.bcf
 
 done < $samplefile

@@ -24,6 +24,11 @@ sample=${arr[1]}
 echo "processing $sample..."
 echo $line > $sample.txt
 ref=$sample.plastome.final.fasta
+if [ -e $2 ];
+then
+	ref=$2
+fi
+echo "using $ref as reference"
 
 python $REPOS/phylogenomics/python/bowtie_align.py -i $sample.txt -r $ref -p 8 -n 20000000
 

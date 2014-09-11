@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#### for each de novo sample:
-reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
-
 #### check to remove any files to paths that don't exist on this machine.
 samplefile="samplefile.txt"
 
@@ -18,6 +15,15 @@ do
 	fi
 done;
 };
+
+#### for each de novo sample:
+reffile=$2;
+if [ -z $2 ];
+then
+	reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
+	echo "using $reffile as reference"
+fi
+
 
 #### $samplefile has a sample file with server, name, path
 while read line

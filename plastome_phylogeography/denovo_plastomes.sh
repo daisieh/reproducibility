@@ -17,12 +17,12 @@ done;
 };
 
 #### for each de novo sample:
-reffile=$2;
-if [ -z $2 ];
+reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
+if [ -e $2 ];
 then
-	reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
-	echo "using $reffile as reference"
+	reffile=$2
 fi
+echo "using $reffile as reference"
 
 
 #### $samplefile has a sample file with server, name, path

@@ -6,20 +6,19 @@ reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
 #### check to remove any files to paths that don't exist on this machine.
 samplefile="samplefile.txt"
 
-# rm $samplefile
-# gawk '$0 !~ /^#/' $1 |
-# {
-# while read line
-# do
-# 	arr=($line);
-# 	if [ -f ${arr[2]} ];
-# 	then
-# 	echo $line >> $samplefile;
-# 	fi
-# done;
-# };
-#
-#
+rm $samplefile
+gawk '$0 !~ /^#/' $1 |
+{
+while read line
+do
+	arr=($line);
+	if [ -f ${arr[2]} ];
+	then
+	echo $line >> $samplefile;
+	fi
+done;
+};
+
 #### $samplefile has a sample file with server, name, path
 while read line
 do
@@ -34,25 +33,25 @@ do
 	echo "  making fastq from bam"
 	$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
 #
-# 	#### aTRAM libs
-# 	echo "  making aTRAM db"
-# 	perl $REPOS/aTRAM/format_sra.pl -in $sample.fasta -out aTRAMdbs/$sample -num 10
-# 	echo "$sample\t$aTRAMdbs/$sample.atram\n" >> atram_samples.txt
+	#### aTRAM libs
+	echo "  making aTRAM db"
+	perl $REPOS/aTRAM/format_sra.pl -in $sample.fasta -out aTRAMdbs/$sample -num 10
+	echo "$sample\t$aTRAMdbs/$sample.atram\n" >> atram_samples.txt
 #
-# 	#### if use CLC genomics workbench 7.0.3 to do de novo assembly of the reads
-# 	#### rename the outputted contigs to more sensible names.
-# 	# sed s/\.small\.bam_.no_read_group._.paired.// < $sample.contigs.fa | sed s/Average\ coverage:.*$// > $sample.contigs.fasta
+	#### if use CLC genomics workbench 7.0.3 to do de novo assembly of the reads
+	#### rename the outputted contigs to more sensible names.
+	# sed s/\.small\.bam_.no_read_group._.paired.// < $sample.contigs.fa | sed s/Average\ coverage:.*$// > $sample.contigs.fasta
 #
-# 	#### use velvet
-# 	echo "  assembling contigs with Velvet"
-# 	velveth $sample 31 -shortPaired -fasta -interleaved $sample.fasta
-# 	velvetg $sample -cov_cutoff 20 -ins_length 400 -min_contig_lgth 300
+	#### use velvet
+	echo "  assembling contigs with Velvet"
+	velveth $sample 31 -shortPaired -fastq -interleaved $sample.fastq
+	velvetg $sample -cov_cutoff 20 -ins_length 400 -min_contig_lgth 300
 #
-# 	#### rename contigs from NODE_2_length_25848_cov_191.293564 to $sample_
-# 	sed s/NODE/$sample/ < $sample/contigs.fa | sed s/_length.*// > $sample.contigs.fasta
+	#### rename contigs from NODE_2_length_25848_cov_191.293564 to $sample_
+	sed s/NODE/$sample/ < $sample/contigs.fa | sed s/_length.*// > $sample.contigs.fasta
 #
-# 	#### make draft plastome
-# 	echo "  assembling draft plastome from contigs"
+	#### make draft plastome
+	echo "  assembling draft plastome from contigs"
 	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome -join
 done < $samplefile
 #

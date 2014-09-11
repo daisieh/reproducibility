@@ -50,39 +50,39 @@ gawk -F " " 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt
 perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 
 
-# perform downstream analyses:
-# generate a KML file for the populations:
+#### perform downstream analyses:
+#### generate a KML file for the populations:
 # gawk -F "\t" 'NR > 1 {print $5,$6,$11,$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
 # perl $REPOS/phylogenomics/reporting/make_kml.pl -i $OUTNAME.locs.txt -c species_colors.txt -o $OUTNAME
 #
-# #rename samples by locality:
-# #create a locality mapping:
+#### rename samples by locality:
+#### create a locality mapping:
 # gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs
 # perl $REPOS/phylogenomics/converting/relabel_samples.pl -i $OUTNAME.trimmed.fasta -label $OUTNAME.rename.locs -out $OUTNAME.locs.fasta
 
 
-# trim strict to define backbone haplotype groups
+#### trim strict to define backbone haplotype groups
 # perl $REPOS/phylogenomics/parsing/trim_missing.pl -fasta $OUTNAME.fasta -out $OUTNAME_strict -row 0.05 -col 0.05
 perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME_strict.fasta $OUTNAME_strict.nex
 sed s/OUTNAME/$OUTNAME/ <paup.txt >$OUTNAME_paup.txt
 cat $OUTNAME_strict.nex $OUTNAME_paup.txt > $OUTNAME_backbone.nex
 paup $OUTNAME_backbone.nex
-# get support values for the backbone branches
+#### get support values for the backbone branches
 
-# look into how PASTA divides an unrooted tree into subgraphs
+#### look into how PASTA divides an unrooted tree into subgraphs
 
-# mapping populations:
-# map with hap A in red / everything else in white
-# possibly pies for haplotypes.
+#### mapping populations:
+#### map with hap A in red / everything else in white
+#### possibly pies for haplotypes.
 #
-# #convert to nexus:
+#### #convert to nexus:
 # perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME.locs.fasta $OUTNAME.locs.nex
 
 #### trim missing data at the 0.1 missing threshold:
 # perl $REPOS/phylogenomics/parsing/trim_missing.pl -in $OUTNAME.fasta -out $OUTNAME.trimmed.fasta -row 0.7 -col 0.1
 # assign all individuals with a more relaxed trimming to assign to hap groups
-# find the exact synapomorphies separating hap A from hap BC, etc. (prob in paup?)
 # investigate possible patterns for identical haplotypes: within populations? How frequent?
-# try to see if these are syn/non-syn
 # use hap groups to inform sampling strategy for de novo assembly
-# comparative z-picture plots of synteny between hap genomes
+
+#### need to do a couple more de novo plastomes for the hap B
+#### filter all balsam reads against the 5 balsam haplotype reference sequences: if the number of SNPs is never below a similarity threshold (prob ~20 SNPS) to any of the haplotypes, then it is probably not a balsam plastome.

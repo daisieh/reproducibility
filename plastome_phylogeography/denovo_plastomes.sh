@@ -68,11 +68,7 @@ do
 	gawk '$0 !~ />/ { print $0; }' $sample.plastome.draft.fasta >> $sample.plastome.final.fasta
 #
 	#### find sections of ambiguity in the draft plastome:
-	grep -o -E ".{100}[Nn]+.{100}" $sample.plastome.final.fasta > $sample.to_atram.txt
-#
-	#### find ends of contigs also:
-	grep -o -E "^.{100}" $sample.plastome.final.fasta >> $sample.to_atram.txt
-	grep -o -E ".{100}$" $sample.plastome.final.fasta >> $sample.to_atram.txt
+	grep -o -E ".{200}[Nn]+.{200}" $sample.plastome.final.fasta > $sample.to_atram.txt
 #
 	rm $sample.targets.txt
 	count=1

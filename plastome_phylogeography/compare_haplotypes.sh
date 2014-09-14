@@ -45,5 +45,5 @@ do
 			rm $sample.bcf
 		fi
 		cd ..
-	done < $1
+	done < $samplefile
 done

@@ -32,14 +32,17 @@ do
 		cd $refname
 		arr=($line);
 		sample=${arr[1]}
-		echo "processing $sample..."
-		echo "using $ref as reference"
+		if [ -f ${arr[2]} ]
+		then
+			echo "processing $sample..."
+			echo "using $ref as reference"
 
-		python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000
+			python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000
 
-		samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
-		bcftools view -c $sample.bcf > $sample.vcf
-		rm $sample.bcf
+			samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
+			bcftools view -c $sample.bcf > $sample.vcf
+			rm $sample.bcf
+		fi
 		cd ..
 	done < $1
 done

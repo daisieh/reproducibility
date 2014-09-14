@@ -5,8 +5,10 @@ samplefile="samplefile.txt"
 
 for ref in $2/*
 do
-	mkdir $ref
-	cd $ref
+	filename=$(basename "$ref")
+	refname="${filename%.*}"
+	mkdir $refname
+	cd $refname
 	rm $samplefile
 	gawk '$0 !~ /^#/' $1 |
 	{

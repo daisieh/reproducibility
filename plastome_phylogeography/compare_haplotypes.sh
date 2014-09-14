@@ -33,6 +33,7 @@ do
 		echo "using $ref as reference"
 		arr=($line);
 		sample=${arr[1]}
+		echo ${arr[2]}
 		if [ -f ${arr[2]} ];
 		then
 			echo "processing $sample..."

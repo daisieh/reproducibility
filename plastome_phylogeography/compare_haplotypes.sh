@@ -3,25 +3,27 @@
 #### check to remove any files to paths that don't exist on this machine.
 samplefile="samplefile.txt"
 
+rm $samplefile
+gawk '$0 !~ /^#/' $1 |
+{
+while read line
+do
+arr=($line);
+if [ -f ${arr[2]} ];
+then
+echo $line
+echo $line >> $samplefile;
+fi
+done;
+};
+
 for ref in $2/*
 do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
+
 	mkdir $refname
 	cd $refname
-	rm $samplefile
-	gawk '$0 !~ /^#/' $1 |
-	{
-	while read line
-	do
-	arr=($line);
-	if [ -f ${arr[2]} ];
-	then
-	echo $line >> $samplefile;
-	fi
-	done;
-	};
-
 	#### $samplefile has a sample file with server, name, path
 	while read line
 	do

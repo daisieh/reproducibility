@@ -35,7 +35,7 @@ do
 		echo "processing $sample..."
 		echo "using $ref as reference"
 
-		python $REPOS/phylogenomics/python/bowtie_align.py -i $sample.txt -r $ref -p 8 -n 2000000
+		python $REPOS/phylogenomics/python/bowtie_align.py -i $samplefile -r $ref -p 8 -n 2000000
 
 		samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
 		bcftools view -c $sample.bcf > $sample.vcf

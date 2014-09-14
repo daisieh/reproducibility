@@ -4,6 +4,8 @@
 samplefile="samplefile.txt"
 
 for ref in $2
+	mkdir $ref
+	cd $ref
 	rm $samplefile
 	gawk '$0 !~ /^#/' $1 |
 	{
@@ -30,6 +32,6 @@ for ref in $2
 	samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
 	bcftools view -c $sample.bcf > $sample.vcf
 	rm $sample.bcf
-
+	cd ..
 	done < $samplefile
 done

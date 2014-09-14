@@ -4,6 +4,7 @@
 samplefile="samplefile.txt"
 
 for ref in $2
+do
 	mkdir $ref
 	cd $ref
 	rm $samplefile

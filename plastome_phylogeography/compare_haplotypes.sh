@@ -3,7 +3,7 @@
 #### check to remove any files to paths that don't exist on this machine.
 samplefile="samplefile.txt"
 
-for ref in $2
+for ref in $2/*
 do
 	mkdir $ref
 	cd $ref

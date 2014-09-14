@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #### check to remove any files to paths that don't exist on this machine.
-samplefile="samplefile.txt"
+samplefile=$2/samplefile.txt
 
 rm $samplefile
 gawk '$0 !~ /^#/' $1 |

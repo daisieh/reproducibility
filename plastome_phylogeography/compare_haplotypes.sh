@@ -30,12 +30,12 @@ do
 	while read line
 	do
 		cd $refname
+		echo "using $ref as reference"
 		arr=($line);
 		sample=${arr[1]}
-		if [ -f ${arr[2]} ]
+		if [ -f ${arr[2]} ];
 		then
 			echo "processing $sample..."
-			echo "using $ref as reference"
 
 			python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000
 

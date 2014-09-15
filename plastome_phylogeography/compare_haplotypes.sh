@@ -34,15 +34,20 @@ do
 		arr=($line);
 		sample=${arr[1]}
 		echo ${arr[2]}
-		if [ -f ${arr[2]} ];
+		if [ -f $sample.vcf ]
 		then
-			echo "processing $sample..."
+			echo "$sample.vcf already exists"
+		else
+			if [ -f ${arr[2]} ];
+			then
+				echo "processing $sample..."
 
-			python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000
+				python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000
 
-			samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
-			bcftools view -c $sample.bcf > $sample.vcf
-			rm $sample.bcf $sample.sorted.bam $sample.small.bam
+				samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
+				bcftools view -c $sample.bcf > $sample.vcf
+				rm $sample.bcf $sample.sorted.bam $sample.small.bam
+			fi
 		fi
 		cd ..
 	done < $samplefile

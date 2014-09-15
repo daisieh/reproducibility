@@ -20,7 +20,7 @@ samplefile=samplefile.txt
 gawk -F " " '{print $11"\t"$1"\t"$12}' $1 > $samplefile
 
 
-for ref in $2/*
+for ref in $2/DEN13_HapC.fasta #$2/*
 do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"

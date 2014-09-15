@@ -20,7 +20,7 @@ samplefile=samplefile.txt
 gawk -F " " '{print $11"\t"$1"\t"$12}' $1 > $samplefile
 
 
-for ref in $2/DEN13_HapC.fasta #$2/*
+for ref in $2/*
 do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
@@ -31,7 +31,6 @@ do
 	while read line
 	do
 		cd $refname
-		echo "using $ref as reference"
 		arr=($line);
 		sample=${arr[1]}
 		location=${arr[2]}
@@ -42,6 +41,7 @@ do
 		else
 			if [ -f ${arr[2]} ];
 			then
+				echo "using $ref as reference"
 				echo "processing $sample..."
 
 # 				python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000

@@ -53,7 +53,7 @@ do
         		bowtie2 -p 8 --no-unal --no-discordant --no-mixed --no-contain --no-unal -x ../$refname.index -1 $sample.1.fastq -2 $sample.2.fastq -S $sample.sam
 				echo "samtools view -S -b -u $sample.sam | samtools view -F 4 -b - > $sample.reduced.bam"
 		        samtools view -S -b -u $sample.sam | samtools view -F 4 -b - > $sample.reduced.bam
-		        rm $sample.sam
+		        rm $sample.sam $sample.small.bam
 				mv $sample.reduced.bam $sample.bam
 				samtools sort $sample.bam $sample.sorted
 				rm $sample.bam $sample.fastq $sample.*.fastq

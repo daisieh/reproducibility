@@ -27,10 +27,10 @@ do
 
 	bowtie2-build $ref $refname.index
 	mkdir $refname
+	cd $refname
 	#### $samplefile has a sample file with server, name, path
 	while read line
 	do
-		cd $refname
 		arr=($line);
 		sample=${arr[1]}
 		location=${arr[2]}
@@ -61,6 +61,6 @@ do
 				rm $sample.bcf $sample.sorted.bam
 			fi
 		fi
-		cd ..
 	done < $samplefile
+	cd ..
 done

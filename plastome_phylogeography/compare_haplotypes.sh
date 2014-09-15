@@ -62,6 +62,6 @@ do
 				rm $sample.bcf $sample.sorted.bam
 			fi
 		fi
-	done < $samplefile
+	done < ../$samplefile
 	cd ..
 done

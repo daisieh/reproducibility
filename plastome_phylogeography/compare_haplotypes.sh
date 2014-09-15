@@ -25,7 +25,7 @@ do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
 
-	bowtie2-build $refname $refname.index
+	bowtie2-build $ref $refname.index
 	mkdir $refname
 	#### $samplefile has a sample file with server, name, path
 	while read line

@@ -42,7 +42,7 @@ do
 
 			samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
 			bcftools view -c $sample.bcf > $sample.vcf
-			rm $sample.bcf $sample.small.bam
+			rm $sample.bcf $sample.sorted.bam $sample.small.bam
 		fi
 		cd ..
 	done < $samplefile

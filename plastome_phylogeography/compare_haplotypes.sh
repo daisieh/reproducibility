@@ -45,8 +45,8 @@ do
 				echo "processing $sample..."
 
 # 				python $REPOS/phylogenomics/python/bowtie_align.py -i ../$samplefile -r $ref -p 8 -n 2000000
-    			echo "samtools view $location | head -n 2000000 | samtools view -S -u > $sample.small.bam"
-    			samtools view $location | head -n 2000000 | samtools view -S -u > $sample.small.bam
+    			echo "samtools view $location | head -n 2000000 | samtools view -S -u - > $sample.small.bam"
+    			samtools view $location | head -n 2000000 | samtools view -S -u - > $sample.small.bam
 #
         		$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
         		$REPOS/phylogenomics/converting/unpair_seqs.pl $sample.fastq $sample

@@ -12,15 +12,16 @@ then
 fi
 echo "using $reffile as reference"
 
-
+CWD=$(pwd)
 while read line
 do
 	arr=($line);
 	sample=${arr[1]}
 	location=${arr[2]}
 	echo "processing $sample..."
-
 	echo "  subset part (6GB) of the bam file"
+	mkdir $sample
+	cd $sample
 	samtools view $location | head -n 3000000 | samtools view -S -u - > $sample.small.bam
 
 	echo "  making fasta from bam"
@@ -28,8 +29,7 @@ do
 #
 	#### aTRAM libs
 	echo "  making aTRAM db"
-	perl $REPOS/aTRAM/format_sra.pl -in $sample.fasta -out aTRAMdbs/$sample -num 10
-	echo "$sample\t$aTRAMdbs/$sample.atram\n" >> atram_samples.txt
+	perl $REPOS/aTRAM/format_sra.pl -in $sample.fasta -out $CWD/aTRAMdbs/$sample -num 10
 #
 	#### if use CLC genomics workbench 7.0.3 to do de novo assembly of the reads
 	#### rename the outputted contigs to more sensible names.
@@ -46,6 +46,7 @@ do
 	#### make draft plastome
 	echo "  assembling draft plastome from contigs"
 	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome -join
+	cd $CWD
 done < $samplefile
 #
 echo "Finished initial assembly"
@@ -57,6 +58,7 @@ do
 	sample=${arr[1]}
 	echo "filling in $sample..."
 #
+	cd $sample
 	echo -e ">$sample\n" > $sample.plastome.final.fasta
 	gawk '$0 !~ />/ { print $0; }' $sample.plastome.draft.fasta >> $sample.plastome.final.fasta
 #
@@ -72,7 +74,7 @@ do
 		echo -e "$sample.$count\t$sample.$count.fasta" >> $sample.targets.txt
 		count=$(($count+1))
 	done < $sample.to_atram.txt
-	echo -e "$sample\taTRAMdbs/$sample.atram" > $sample.samples.txt
+	echo -e "$sample\t$CWD/aTRAMdbs/$sample.atram" > $sample.samples.txt
 #
 	#### aTRAM those ambiguous sections
 	echo "  aTRAM ambiguous sections"
@@ -105,4 +107,5 @@ do
 
 	#### clean draft plastome
 	perl $REPOS/phylogenomics/plastome/clean_cp.pl -ref $reffile -contig $sample.plastome.final.fasta -out $sample.plastome
+	cd $CWD
 done < $samplefile

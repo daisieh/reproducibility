@@ -1,23 +1,7 @@
 #!/bin/bash
 
-#### check to remove any files to paths that don't exist on this machine.
-samplefile=samplefile.txt
+samplefile=$1
 
-# rm $samplefile
-# gawk '$0 !~ /^#/' $1 |
-# {
-# while read line
-# do
-# arr=($line);
-# if [ -f ${arr[2]} ];
-# then
-# echo $line
-# echo $line >> $samplefile;
-# fi
-# done;
-# };
-
-gawk -F " " '{print $11"\t"$1"\t"$12}' $1 > $samplefile
 REFS=$2/*
 
 # for ref in $REFS

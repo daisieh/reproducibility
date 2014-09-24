@@ -1,22 +1,7 @@
 #!/bin/bash
 
-#### check to remove any files to paths that don't exist on this machine.
-samplefile="samplefile.txt"
-
-rm $samplefile
-gawk '$0 !~ /^#/' $1 | gawk -F " " '{print $11"\t"$1"\t"$12}' |
-{
-while read line
-do
-	arr=($line);
-	if [ -f ${arr[2]} ];
-	then
-	echo $line
-	echo $line >> $samplefile;
-	fi
-done;
-};
-
+#### $samplefile has a sample file with server, name, path
+samplefile=$1
 
 
 #### for each de novo sample:
@@ -28,7 +13,6 @@ fi
 echo "using $reffile as reference"
 
 
-#### $samplefile has a sample file with server, name, path
 while read line
 do
 	arr=($line);

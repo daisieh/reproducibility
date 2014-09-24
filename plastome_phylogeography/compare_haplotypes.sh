@@ -70,6 +70,7 @@ for ref in $REFS
 do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
+	echo "looking at $refname"
 
 	cd $refname
 	vcfs=*

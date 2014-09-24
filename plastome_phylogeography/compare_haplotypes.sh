@@ -71,7 +71,7 @@ do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
 	echo "looking at $refname"
-
+	pwd
 	cd $refname
 	vcfs=*
 	for vcffile in $vcfs

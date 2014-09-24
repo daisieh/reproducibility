@@ -75,7 +75,7 @@ do
 	vcfs=*
 	for vcffile in $vcfs
 	do
-		perl $REPOS/phylogenomics/analysis/count_SNPS.pl -sample $vcffile >> ../$refname.results.txt
+		perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $vcffile >> ../$refname.results.txt
 	done
 	cd ..
 done

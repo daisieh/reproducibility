@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#### $samplefile has a sample file with server, name, path
 samplefile=$1
 
 REFS=$2/*

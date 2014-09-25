@@ -17,7 +17,8 @@ do
 	arr=($line);
 	sample=${arr[1]}
 	location=${arr[2]}
-	if [ $(grep -c "#" ${arr[0]}) -ne 0];
+	comment=$(grep -c "#" ${arr[0]})
+	if [ $comment -ne 0];
 	then
 		echo "skipping $sample"
 		continue;

@@ -11,7 +11,7 @@ then
 fi
 echo "using $reffile as reference"
 
-echo "" > samplefile.txt
+# echo "" > samplefile.txt
 
 CWD=$(pwd)
 # while read line

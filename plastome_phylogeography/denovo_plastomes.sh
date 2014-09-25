@@ -51,6 +51,8 @@ do
 	#### make draft plastome
 	echo "  assembling draft plastome from contigs"
 	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome -join
+
+	rm $sample.small.bam $sample.fasta
 	cd $CWD
 done < $samplefile
 #

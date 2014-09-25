@@ -11,6 +11,8 @@ then
 fi
 echo "using $reffile as reference"
 
+echo "" > samplefile.txt
+
 CWD=$(pwd)
 while read line
 do
@@ -24,6 +26,7 @@ do
 		continue;
 	fi
 	echo "processing $sample..."
+	echo "$sample" > samplefile.txt
 	echo "  subset part (6GB) of the bam file"
 	mkdir $sample
 	cd $sample
@@ -59,10 +62,8 @@ done < $samplefile
 echo "Finished initial assembly"
 # #### further cleanup steps
 
-while read line
+while read sample
 do
-	arr=($line);
-	sample=${arr[1]}
 	echo "filling in $sample..."
 #
 	cd $sample
@@ -115,4 +116,4 @@ do
 	#### clean draft plastome
 	perl $REPOS/phylogenomics/plastome/clean_cp.pl -ref $reffile -contig $sample.plastome.final.fasta -out $sample.plastome
 	cd $CWD
-done < $samplefile
+done < samplefile.txt

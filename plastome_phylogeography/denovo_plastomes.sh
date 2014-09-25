@@ -3,7 +3,6 @@
 #### $samplefile has a sample file with server, name, path
 samplefile=$1
 
-
 #### for each de novo sample:
 reffile="$REPOS/reproducibility/plastome_phylogeography/manihot_cp.gb"
 if [ -e $2 ];
@@ -18,6 +17,11 @@ do
 	arr=($line);
 	sample=${arr[1]}
 	location=${arr[2]}
+	if [ $(grep -c "#" $line) -ne 0];
+	then
+		echo "skipping $sample"
+		continue;
+	fi
 	echo "processing $sample..."
 	echo "  subset part (6GB) of the bam file"
 	mkdir $sample

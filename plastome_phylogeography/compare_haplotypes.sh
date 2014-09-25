@@ -5,6 +5,7 @@ samplefile=$1
 
 REFS=$2/*
 
+CWD=$(pwd)
 
 for ref in $REFS
 do
@@ -13,7 +14,7 @@ do
 #
 	bowtie2-build $ref $refname.index 2>/dev/null
 	mkdir $refname
-	cd $refname
+	cd $CWD/$refname
 	pwd
 	#### $samplefile has a sample file with server, name, path
 	echo "" > samplefile.txt
@@ -50,8 +51,8 @@ do
 				rm $sample.bcf $sample.sorted.bam
 			fi
 		fi
-	done < ../$samplefile
-	cd ..
+	done < $samplefile
+	cd $CWD
 done
 
 for ref in $REFS
@@ -59,12 +60,12 @@ do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
 	echo "$refname" > $refname.results.txt
-	cd $refname
+	cd $CWD/$refname
 
 	#for vcffile in $vcfs
 	while read $sample
 	do
 		perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> ../$refname.results.txt
 	done < samplefile.txt
-	cd ..
+	cd $CWD
 done

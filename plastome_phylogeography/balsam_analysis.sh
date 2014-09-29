@@ -17,8 +17,9 @@ INFILE=balsam_sample_data.txt
 fi
 
 CURRDIR=$PWD
+filename=$(basename "$INFILE" .txt);
 
-RESULTDIR=balsam_analysis
+RESULTDIR=$filename
 OUTNAME=$RESULTDIR/$INFILE
 
 mkdir $RESULTDIR

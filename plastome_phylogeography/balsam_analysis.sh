@@ -36,7 +36,7 @@ bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
 cd $CURRDIR
 
 #### convert the vcfs to fasta:
-gawk -F " " 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt
+gawk -F "\t" 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt
 perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 
 

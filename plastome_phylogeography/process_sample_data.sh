@@ -9,6 +9,7 @@ gawk '$0 !~ /^#/' $1 | gawk -F "\t" '{print $12"\t"$1"\t"$13}' |
 {
 while read line
 do
+	echo "hi $line"
 	arr=($line);
 	if [ -f ${arr[2]} ];
 	then

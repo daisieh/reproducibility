@@ -25,22 +25,11 @@ OUTNAME=$RESULTDIR/$INFILE
 mkdir $RESULTDIR
 
 #### check to remove any files to paths that don't exist on this machine.
-while read line
-do
-arr=($line);
-file=${arr[11]};
-if [ -f $file ]
-then
-echo $line >> $OUTNAME.0.txt;
-fi
-done < $INFILE
+bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $1 > $OUTNAME.1.txt
 
-INFILE=$OUTNAME.0.txt;
+INFILE=$OUTNAME.1.txt;
 
 #### run the bam to vcf pipeline:
-
-#### OUTNAME.1.txt has server,sample,path
-gawk -F " " '{print $11"\t"$1"\t"$12}' $INFILE > $OUTNAME.1.txt
 
 cd $RESULTDIR
 bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
@@ -48,7 +37,7 @@ cd $CURRDIR
 
 #### convert the vcfs to fasta:
 gawk -F " " 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt
-perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
+perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 
 
 #### perform downstream analyses:

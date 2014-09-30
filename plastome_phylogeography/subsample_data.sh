@@ -15,7 +15,6 @@ do
 	arr=($line);
 	if [ -f ${arr[2]} ];
 	then
-	echo $line
 	echo $line >> $samplefile;
 	fi
 done;
@@ -26,7 +25,7 @@ do
 	arr=($line);
 	sample=${arr[1]};
 	path=${arr[2]};
-# 	samtools view -s 85.143 $path > $sample.bam
+ 	samtools view -s 85.143 $path > $sample.bam
 	samtools sort $sample.bam $sample.sorted
-	rm $sample.bam
+#	rm $sample.bam
 done < $samplefile

@@ -49,6 +49,7 @@ INFILE=$OUTNAME.1.txt;
 
 cd $RESULTDIR
 # bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
+echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample"
 python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample
 python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8
 

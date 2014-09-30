@@ -16,6 +16,17 @@ then
 INFILE=balsam_sample_data.txt
 fi
 
+REFGB=$2;
+if [ -z $2 ];
+then
+REFGB=trichocarpa_cp.gb
+fi
+
+#### make fasta file from ref gb
+refname=$(basename "$REFGB" .gb);
+REF=$refname.fasta
+perl $REPOS/phylogenetics/converting/gb_to_fasta.pl -in $REFGB -out $REF
+
 CURRDIR=$PWD
 filename=$(basename "$INFILE" .txt);
 

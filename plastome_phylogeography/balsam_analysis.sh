@@ -25,7 +25,7 @@ fi
 #### make fasta file from ref gb
 refname=$(basename "$REFGB" .gb);
 REF=$refname.fasta
-perl $REPOS/phylogenetics/converting/gb_to_fasta.pl -in $REFGB -out $REF
+perl $REPOS/phylogenomics/converting/gb_to_fasta.pl -in $REFGB -out $REF
 
 CURRDIR=$PWD
 filename=$(basename "$INFILE" .txt);
@@ -44,8 +44,8 @@ INFILE=$OUTNAME.1.txt;
 
 cd $RESULTDIR
 # bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
-# python ~/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 -n 10000000
-python ~/phylogenomics/python/bam_to_vcf.py -i $f -r $REF -p 8
+# python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 -n 10000000
+python $REPOS/phylogenomics/python/bam_to_vcf.py -i $f -r $REF -p 8
 cd $CURRDIR
 
 #### convert the vcfs to fasta:

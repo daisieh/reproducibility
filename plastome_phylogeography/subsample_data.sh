@@ -26,6 +26,4 @@ do
 	sample=${arr[1]};
 	path=${arr[2]};
  	samtools view -s 85.143 $path > $sample.bam
-	samtools sort $sample.bam $sample.sorted
-#	rm $sample.bam
 done < $samplefile

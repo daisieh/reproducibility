@@ -31,7 +31,7 @@ CURRDIR=$PWD
 filename=$(basename "$INFILE" .txt);
 
 RESULTDIR=$filename
-OUTNAME=$RESULTDIR/$INFILE
+OUTNAME=$RESULTDIR/$filename
 
 mkdir $RESULTDIR
 

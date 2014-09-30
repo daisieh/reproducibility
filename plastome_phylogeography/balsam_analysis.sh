@@ -42,11 +42,17 @@ INFILE=$OUTNAME.1.txt;
 
 #### run the bam to vcf pipeline:
 
-cd $RESULTDIR
+# cd $RESULTDIR
 # bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
 # python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 -n 10000000
-$REPOS/phylogenomics/converting/bam_to_vcf.sh $f $CURRDIR/$REF
-cd $CURRDIR
+# cd $CURRDIR
+
+while read line
+do
+	arr=($line);
+	sample=${arr[1]}
+	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $REF
+done < $OUTNAME.1.txt
 
 #### convert the vcfs to fasta:
 gawk -F "\t" 'NR > 1 {print $1".vcf"}' $INFILE > $OUTNAME.2.txt

@@ -26,7 +26,7 @@ fi
 refname=$(basename "$REFGB" .gb);
 REF=$refname.fasta
 perl $REPOS/phylogenomics/converting/gb_to_fasta.pl -in $REFGB -out $REF
-
+echo "reference is now $REF"
 CURRDIR=$PWD
 filename=$(basename "$INFILE" .txt);
 

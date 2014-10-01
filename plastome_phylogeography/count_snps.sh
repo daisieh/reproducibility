@@ -18,6 +18,7 @@ do
 	#for vcffile in $vcfs
 	while read $line
 	do
+		echo "$line"
 		arr=($line);
 		sample=${arr[1]}
 		if [ -f $sample.vcf ]

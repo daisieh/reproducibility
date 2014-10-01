@@ -16,7 +16,7 @@ do
 	cd $CWD/$refname
 
 	#for vcffile in $vcfs
-	while read $line
+	while read line
 	do
 		echo "$line"
 		arr=($line);

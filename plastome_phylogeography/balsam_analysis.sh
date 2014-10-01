@@ -52,11 +52,11 @@ INFILE=$OUTNAME.1.txt;
 
 #### run the bam to vcf pipeline:
 
-cd $RESULTDIR
-# bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
-echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample"
-python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample
-python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8
+# cd $RESULTDIR
+# # bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
+# echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample"
+# python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample
+# python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8
 
 # while read line
 # do
@@ -65,31 +65,31 @@ python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDI
 # 	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $CURRDIR/$REF
 # done < $CURRDIR/$OUTNAME.1.txt
 #
-cd $CURRDIR
-
-#### convert the vcfs to fasta:
-gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
-cd $RESULTDIR
-perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
-cd $CURRDIR
+# cd $CURRDIR
+#
+# #### convert the vcfs to fasta:
+# gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
+# cd $RESULTDIR
+# perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
+# cd $CURRDIR
 
 #### perform downstream analyses:
 #### generate a KML file for the populations:
-# gawk -F "\t" 'NR > 1 {print $5,$6,$11,$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
-# perl $REPOS/phylogenomics/reporting/make_kml.pl -i $OUTNAME.locs.txt -c species_colors.txt -o $OUTNAME
+gawk -F "\t" 'NR > 1 {print $5,$6,$11,$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
+perl $REPOS/phylogenomics/reporting/make_kml.pl -i $OUTNAME.locs.txt -c species_colors.txt -o $OUTNAME
 #
 #### rename samples by locality:
 #### create a locality mapping:
-# gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs
-# perl $REPOS/phylogenomics/converting/relabel_samples.pl -i $OUTNAME.trimmed.fasta -label $OUTNAME.rename.locs -out $OUTNAME.locs.fasta
+gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs
+perl $REPOS/phylogenomics/converting/relabel_samples.pl -i $OUTNAME.trimmed.fasta -label $OUTNAME.rename.locs -out $OUTNAME.locs.fasta
 
 
 #### trim strict to define backbone haplotype groups
 # perl $REPOS/phylogenomics/parsing/trim_missing.pl -fasta $OUTNAME.fasta -out $OUTNAME_strict -row 0.05 -col 0.05
-perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME_strict.fasta $OUTNAME_strict.nex
-sed s/OUTNAME/$OUTNAME/ <paup.txt >$OUTNAME_paup.txt
-cat $OUTNAME_strict.nex $OUTNAME_paup.txt > $OUTNAME_backbone.nex
-paup $OUTNAME_backbone.nex
+# perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME_strict.fasta $OUTNAME_strict.nex
+# sed s/OUTNAME/$OUTNAME/ <paup.txt >$OUTNAME_paup.txt
+# cat $OUTNAME_strict.nex $OUTNAME_paup.txt > $OUTNAME_backbone.nex
+# paup $OUTNAME_backbone.nex
 #### get support values for the backbone branches
 
 #### look into how PASTA divides an unrooted tree into subgraphs

@@ -21,5 +21,5 @@ OUTNAME=$2;
 
 #### perform downstream analyses:
 #### generate a KML file for the populations:
-gawk -F "\t" 'NR > 1 {print $5,$6,$11,$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
+gawk -F "\t" 'NR > 1 {print $5"\t"$6"\t"$11"\t"$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
 perl $REPOS/phylogenomics/reporting/make_kml.pl -input $OUTNAME.locs.txt -c species_colors.txt -o $OUTNAME

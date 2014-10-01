@@ -2,7 +2,7 @@
 
 #### Performs phylogeographic analysis of POPCAN's P. balsamifera samples (or others).
 
-if [ -n $REPOS ];
+if [ -z $REPOS ];
 then
 REPOS=$HOME;
 fi

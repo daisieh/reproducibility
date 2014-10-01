@@ -2,7 +2,7 @@
 
 #### Map populations
 
-if [ -n $REPOS ];
+if [ -z $REPOS ];
 then
 REPOS=$HOME;
 fi

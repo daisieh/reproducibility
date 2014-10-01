@@ -69,8 +69,9 @@ cd $CURRDIR
 
 #### convert the vcfs to fasta:
 gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
+cd $RESULTDIR
 perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
-
+cd $CURRDIR
 
 #### perform downstream analyses:
 #### generate a KML file for the populations:

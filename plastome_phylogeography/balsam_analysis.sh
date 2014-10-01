@@ -23,7 +23,7 @@ REFGB=trichocarpa_cp.gb
 fi
 
 subsample="-n 0"
-if [ $3 == "subsample" ];
+if [ $3 != "" ];
 then
 subsample="-n 10000000"
 fi

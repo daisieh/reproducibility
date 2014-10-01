@@ -29,5 +29,6 @@ do
 	cd $CWD
 done
 
+echo "perl $REPOS/phylogenomics/converting/combine_files.pl -head -names -in $REFS > $samplefile.results.txt"
 perl $REPOS/phylogenomics/converting/combine_files.pl -head -names -in $REFS > $samplefile.results.txt
 perl $REPOS/reproducibility/plastome_phylogeography/closest_ref.pl $samplefile.results.txt

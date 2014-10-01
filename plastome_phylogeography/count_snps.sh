@@ -11,6 +11,7 @@ for ref in $REFS
 do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
+	echo "$refname"
 	echo "$refname" > $refname.results.txt
 	cd $CWD/$refname
 
@@ -24,6 +25,6 @@ do
 			echo "counting snps in $sample"
 			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> ../$refname.results.txt
 		fi
-	done < samplefile.txt
+	done < $samplefile
 	cd $CWD
 done

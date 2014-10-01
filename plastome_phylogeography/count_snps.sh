@@ -23,7 +23,7 @@ do
 		if [ -f $sample.vcf ]
 		then
 			echo "counting snps in $sample"
-			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> ../$refname.results.txt
+			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> $CWD/$refname.results.txt
 		fi
 	done < $CWD/$samplefile
 	cd $CWD

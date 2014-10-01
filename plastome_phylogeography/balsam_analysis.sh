@@ -23,10 +23,11 @@ REFGB=trichocarpa_cp.gb
 fi
 
 echo "third arg is .$3."
-subsample="-n 0"
-if [ -z $3 ];
-then
 subsample="-n 10000000"
+if [ $3 ];
+then
+echo "no subsample"
+subsample="-n 0"
 fi
 
 #### make fasta file from ref gb

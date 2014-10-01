@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#### Performs phylogeographic analysis of POPCAN's P. balsamifera samples.
+#### Performs phylogeographic analysis of POPCAN's P. balsamifera samples (or others).
 
 if [ -n $REPOS ];
 then
@@ -46,10 +46,10 @@ OUTNAME=$RESULTDIR/$filename
 mkdir $RESULTDIR
 
 #### check to remove any files to paths that don't exist on this machine.
-bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $1 > $OUTNAME.1.txt
-
-INFILE=$OUTNAME.1.txt;
-
+# bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $1 > $OUTNAME.1.txt
+#
+# INFILE=$OUTNAME.1.txt;
+INFILE=$1;
 #### run the bam to vcf pipeline:
 
 # cd $RESULTDIR
@@ -75,9 +75,7 @@ INFILE=$OUTNAME.1.txt;
 
 #### perform downstream analyses:
 #### generate a KML file for the populations:
-gawk -F "\t" 'NR > 1 {print $5,$6,$11,$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
-perl $REPOS/phylogenomics/reporting/make_kml.pl -i $OUTNAME.locs.txt -c species_colors.txt -o $OUTNAME
-#
+map_samples.sh $INFILE $OUTNAME
 #### rename samples by locality:
 #### create a locality mapping:
 gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs

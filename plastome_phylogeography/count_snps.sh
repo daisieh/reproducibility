@@ -21,6 +21,7 @@ do
 		sample=${arr[1]}
 		if [ -f $sample.vcf ]
 		then
+			echo "counting snps in $sample"
 			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> ../$refname.results.txt
 		fi
 	done < samplefile.txt

@@ -11,23 +11,23 @@ fi
 ####1file_id	2sample	3DNA_code	4ADM_#	5species	6POP_CODE	7POPNAME	8POP#	9GROUP	10LONG	11LAT	12server	13path	14plastome
 
 INFILE=$1;
-if [ -z $1 ];
+if [ -a $1 ];
 then
 INFILE=balsam_sample_data.txt
 fi
 
 REFGB=$2;
-if [ -z $2 ];
+if [ -a $2 ];
 then
 REFGB=trichocarpa_cp.gb
 fi
 
 echo "third arg is .$3."
-subsample="-n 10000000"
+subsample="-n 0"
 if [ $3 ];
 then
-echo "no subsample"
-subsample="-n 0"
+echo "subsample"
+subsample="-n 10000000"
 fi
 
 #### make fasta file from ref gb

@@ -22,6 +22,7 @@ then
 REFGB=trichocarpa_cp.gb
 fi
 
+echo "third arg is .$3."
 subsample="-n 0"
 if [ -z $3 ];
 then

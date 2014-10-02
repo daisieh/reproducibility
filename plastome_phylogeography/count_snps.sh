@@ -6,6 +6,7 @@ samplefile=$1
 REFS=$2/*
 
 CWD=$(pwd)
+mkdir results
 
 for ref in $REFS
 do
@@ -23,12 +24,14 @@ do
 		if [ -f $sample.vcf ]
 		then
 			echo "counting snps in $sample"
-			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> $CWD/$refname.results.txt
+			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> $CWD/results/$refname.results.txt
 		fi
 	done < $CWD/$samplefile
 	cd $CWD
 done
 
+cd $CWD
+REFS=results/*
 refline=${REFS}
 echo $refline
 echo "perl $REPOS/phylogenomics/converting/combine_files.pl -head -names -in $refline > $samplefile.results.txt"

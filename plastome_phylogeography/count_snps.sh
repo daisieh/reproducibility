@@ -13,7 +13,7 @@ do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
 	echo "$refname"
-	echo -e "sample\t$refname" > $refname.results.txt
+	echo -e "sample\t$refname" > results/$refname.results.txt
 	cd $CWD/$refname
 
 	#for vcffile in $vcfs

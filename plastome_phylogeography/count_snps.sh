@@ -34,4 +34,4 @@ cd $CWD
 REFS=results/*
 refline=$(echo $REFS)
 perl $REPOS/phylogenomics/converting/combine_files.pl -head -names -in $refline > $samplefile.results.txt
-perl $REPOS/reproducibility/plastome_phylogeography/closest_ref.pl $samplefile.results.txt
+perl $REPOS/reproducibility/plastome_phylogeography/closest_ref.pl $samplefile.results.txt > $samplefile.refs.txt

@@ -24,7 +24,6 @@ echo "no reference specified"
 REFGB=trichocarpa_cp.gb
 fi
 
-echo "third arg is .$3."
 subsample="-n 0"
 if [ $3 ];
 then
@@ -46,40 +45,40 @@ OUTNAME=$RESULTDIR/$filename
 mkdir $RESULTDIR
 
 #### check to remove any files to paths that don't exist on this machine.
-# bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $1 > $OUTNAME.1.txt
+bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $1 > $OUTNAME.1.txt
 #
-# INFILE=$OUTNAME.1.txt;
+INFILE=$OUTNAME.1.txt;
 INFILE=$1;
 #### run the bam to vcf pipeline:
 
-# cd $RESULTDIR
-# # bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
-# echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample"
-# python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample
-# python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8
+cd $RESULTDIR
+# bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
+echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample"
+python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample
+python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8
 
-# while read line
-# do
-# 	arr=($line);
-# 	sample=${arr[1]}
-# 	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $CURRDIR/$REF
-# done < $CURRDIR/$OUTNAME.1.txt
+while read line
+do
+	arr=($line);
+	sample=${arr[1]}
+	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $CURRDIR/$REF
+done < $CURRDIR/$OUTNAME.1.txt
 #
-# cd $CURRDIR
+cd $CURRDIR
 #
-# #### convert the vcfs to fasta:
-# gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
-# cd $RESULTDIR
-# perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
-# cd $CURRDIR
+#### convert the vcfs to fasta:
+gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
+cd $RESULTDIR
+perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
+cd $CURRDIR
 
 #### perform downstream analyses:
 #### generate a KML file for the populations:
-map_samples.sh $INFILE $OUTNAME
+# map_samples.sh $INFILE $OUTNAME
 #### rename samples by locality:
 #### create a locality mapping:
-gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs
-perl $REPOS/phylogenomics/converting/relabel_samples.pl -i $OUTNAME.trimmed.fasta -label $OUTNAME.rename.locs -out $OUTNAME.locs.fasta
+# gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs
+# perl $REPOS/phylogenomics/converting/relabel_samples.pl -i $OUTNAME.trimmed.fasta -label $OUTNAME.rename.locs -out $OUTNAME.locs.fasta
 
 
 #### trim strict to define backbone haplotype groups

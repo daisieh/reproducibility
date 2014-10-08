@@ -56,4 +56,4 @@ do
 done
 
 rm $2/*.fai
-count_snps.sh $1 $2
+$REPOS/reproducibility/plastome_phylogeography/count_snps.sh $1 $2

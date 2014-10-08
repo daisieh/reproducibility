@@ -1,11 +1,15 @@
 #!/bin/bash
 
 #### $samplefile has a sample file with server, name, path
-samplefile=$1
-
-REFS=$2/*
-
 CWD=$(pwd)
+
+cd $(dirname "$1")
+samplefile=$(pwd)/$(basename "$1")
+cd $CWD
+
+cd $(dirname "$2")
+REFS=$(pwd)/$(basename "$2")/*
+cd $CWD
 
 for ref in $REFS
 do

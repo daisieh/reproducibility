@@ -61,3 +61,4 @@ done
 
 rm $2/*.fai
 $REPOS/reproducibility/plastome_phylogeography/count_snps.sh $1 $2
+$REPOS/phylogenomics/converting/combine_files.pl -input results/* -head -names > results.txt

@@ -9,15 +9,15 @@ cd $CWD
 
 
 REFS=$2/*
-
-mkdir results
+results=results
+mkdir $results
 
 for ref in $REFS
 do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
 	echo "$refname"
-	echo -e "sample\t$refname" > results/$refname.results.txt
+	echo -e "sample\t$refname" > $results/$refname.$results.txt
 
 	cd $CWD/$refname
 	#for vcffile in $vcfs
@@ -28,14 +28,14 @@ do
 		if [ -f $sample.vcf ]
 		then
 			echo "counting snps in $sample"
-			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> $CWD/results/$refname.results.txt
+			perl $REPOS/phylogenomics/analysis/count_SNPs.pl -sample $sample.vcf >> $CWD/$results/$refname.$results.txt
 		fi
 	done < $samplefile
 	cd $CWD
 done
 
 cd $CWD
-REFS=results/*
+REFS=$results/*
 refline=$(echo $REFS)
-perl $REPOS/phylogenomics/converting/combine_files.pl -head -names -in $refline > $samplefile.results.txt
-perl $REPOS/reproducibility/plastome_phylogeography/closest_ref.pl $samplefile.results.txt > $samplefile.refs.txt
+perl $REPOS/phylogenomics/converting/combine_files.pl -head -names -in $refline > $samplefile.$results.txt
+perl $REPOS/reproducibility/plastome_phylogeography/closest_ref.pl $samplefile.$results.txt > $samplefile.refs.txt

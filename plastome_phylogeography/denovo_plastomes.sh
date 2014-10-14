@@ -14,50 +14,50 @@ echo "using $reffile as reference"
 # echo "" > samplefile.txt
 
 CWD=$(pwd)
-# while read line
-# do
-# 	arr=($line);
-# 	sample=${arr[1]}
-# 	location=${arr[2]}
-# 	comment=$(echo $line | grep -c "#" -)
-# 	if [ $comment -ne 0 ];
-# 	then
-# 		echo "skipping $sample"
-# 		continue;
-# 	fi
-# 	echo "processing $sample..."
-# 	echo "$sample" > samplefile.txt
-# 	echo "  subset part (6GB) of the bam file"
-# 	mkdir $sample
-# 	cd $sample
-# 	samtools view $location | head -n 3000000 | samtools view -S -u - > $sample.small.bam
+while read line
+do
+	arr=($line);
+	sample=${arr[1]}
+	location=${arr[2]}
+	comment=$(echo $line | grep -c "#" -)
+	if [ $comment -ne 0 ];
+	then
+		echo "skipping $sample"
+		continue;
+	fi
+	echo "processing $sample..."
+	echo "$sample" > samplefile.txt
+	echo "  subset part (6GB) of the bam file"
+	mkdir $sample
+	cd $sample
+	samtools view $location | head -n 3000000 | samtools view -S -u - > $sample.small.bam
 #
-# 	echo "  making fasta from bam"
-# 	$REPOS/phylogenomics/converting/bam_to_fasta.sh $sample.small.bam $sample
-# #
-# 	#### aTRAM libs
-# 	echo "  making aTRAM db"
-# 	perl $REPOS/aTRAM/format_sra.pl -in $sample.fasta -out $CWD/aTRAMdbs/$sample -num 10
-# #
-# 	#### if use CLC genomics workbench 7.0.3 to do de novo assembly of the reads
-# 	#### rename the outputted contigs to more sensible names.
-# 	# sed s/\.small\.bam_.no_read_group._.paired.// < $sample.contigs.fa | sed s/Average\ coverage:.*$// > $sample.contigs.fasta
-# #
-# 	#### use velvet
-# 	echo "  assembling contigs with Velvet"
-# 	velveth $sample 31 -shortPaired -fasta -interleaved $sample.fasta
-# 	velvetg $sample -cov_cutoff 20 -ins_length 400 -min_contig_lgth 300
-# #
-# 	#### rename contigs from NODE_2_length_25848_cov_191.293564 to $sample_
-# 	sed s/NODE/$sample/ < $sample/contigs.fa | sed s/_length.*// > $sample.contigs.fasta
-# #
-# 	#### make draft plastome
-# 	echo "  assembling draft plastome from contigs"
-# 	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome -join
+	echo "  making fasta from bam"
+	$REPOS/phylogenomics/converting/bam_to_fasta.sh $sample.small.bam $sample
 #
-# 	rm $sample.small.bam $sample.fasta
-# 	cd $CWD
-# done < $samplefile
+	#### aTRAM libs
+	echo "  making aTRAM db"
+	perl $REPOS/aTRAM/format_sra.pl -in $sample.fasta -out $CWD/aTRAMdbs/$sample -num 10
+#
+	#### if use CLC genomics workbench 7.0.3 to do de novo assembly of the reads
+	#### rename the outputted contigs to more sensible names.
+	# sed s/\.small\.bam_.no_read_group._.paired.// < $sample.contigs.fa | sed s/Average\ coverage:.*$// > $sample.contigs.fasta
+#
+	#### use velvet
+	echo "  assembling contigs with Velvet"
+	velveth $sample 31 -shortPaired -fasta -interleaved $sample.fasta
+	velvetg $sample -cov_cutoff 20 -ins_length 400 -min_contig_lgth 300
+#
+	#### rename contigs from NODE_2_length_25848_cov_191.293564 to $sample_
+	sed s/NODE/$sample/ < $sample/contigs.fa | sed s/_length.*// > $sample.contigs.fasta
+#
+	#### make draft plastome
+	echo "  assembling draft plastome from contigs"
+	perl $REPOS/phylogenomics/plastome/contigs_to_cp.pl -ref $reffile -contig $sample.contigs.fasta -out $sample.plastome -join
+#
+	rm $sample.small.bam $sample.fasta
+	cd $CWD
+done < $samplefile
 #
 echo "Finished initial assembly"
 # #### further cleanup steps

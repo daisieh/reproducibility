@@ -32,7 +32,9 @@ subsample="-n 10000000"
 fi
 
 #### make fasta file from ref gb
-refname=$(basename "$REFGB" .gb);
+
+refname=$(echo "$(cd "$(dirname "$REFGB")" && pwd)/$(basename "$REFGB" .gb)")
+# refname=$(basename "$REFGB" .gb);
 REF=$refname.fasta
 perl $REPOS/phylogenomics/converting/gb_to_fasta.pl -in $REFGB -out $REF
 echo "reference is now $REF"
@@ -52,17 +54,16 @@ INFILE=$1;
 #### run the bam to vcf pipeline:
 
 cd $RESULTDIR
-# bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt
-echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample"
-python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8 $subsample
-python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $CURRDIR/$REF -p 8
+echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample"
+python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample
+python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p 8
 
-while read line
-do
-	arr=($line);
-	sample=${arr[1]}
-	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $CURRDIR/$REF
-done < $CURRDIR/$OUTNAME.1.txt
+# while read line
+# do
+# 	arr=($line);
+# 	sample=${arr[1]}
+# 	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $CURRDIR/$REF
+# done < $CURRDIR/$OUTNAME.1.txt
 #
 cd $CURRDIR
 #

@@ -62,7 +62,7 @@ cd $CURRDIR
 #### convert the vcfs to fasta:
 gawk '{print $2".vcf"}' $OUTNAME.1.txt > $OUTNAME.2.txt
 cd $RESULTDIR
-perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
+perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 cd $CURRDIR
 
 #### perform downstream analyses:

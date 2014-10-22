@@ -58,15 +58,8 @@ echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $
 python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample
 python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p 8
 
-# while read line
-# do
-# 	arr=($line);
-# 	sample=${arr[1]}
-# 	$REPOS/phylogenomics/converting/bam_to_vcf.sh $sample $CURRDIR/$REF
-# done < $CURRDIR/$OUTNAME.1.txt
-#
 cd $CURRDIR
-#
+
 #### convert the vcfs to fasta:
 gawk -F " " '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
 cd $RESULTDIR

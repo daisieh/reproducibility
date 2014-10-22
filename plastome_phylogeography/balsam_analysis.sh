@@ -66,13 +66,6 @@ perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -ou
 cd $CURRDIR
 
 #### perform downstream analyses:
-#### generate a KML file for the populations:
-# map_samples.sh $INFILE $OUTNAME
-#### rename samples by locality:
-#### create a locality mapping:
-# gawk -F "\t" 'NR > 1 {print $1,$2,$10}' $INFILE | gawk '{if ($3 < -110) {print $1,"W_"$2;next;}; if ($3 < -79) {print $1,"C_"$2;next;}; if ($3 < -50) {print $1,"E_"$2;next;}}' > $OUTNAME.rename.locs
-# perl $REPOS/phylogenomics/converting/relabel_samples.pl -i $OUTNAME.trimmed.fasta -label $OUTNAME.rename.locs -out $OUTNAME.locs.fasta
-
 
 #### trim strict to define backbone haplotype groups
 # perl $REPOS/phylogenomics/parsing/trim_missing.pl -fasta $OUTNAME.fasta -out $OUTNAME_strict -row 0.05 -col 0.05

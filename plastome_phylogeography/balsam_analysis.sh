@@ -61,7 +61,7 @@ python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p
 cd $CURRDIR
 
 #### convert the vcfs to fasta:
-gawk '{print $2".vcf"}' $INFILE > $OUTNAME.2.txt
+gawk '{print $1".vcf"}' $INFILE > $OUTNAME.2.txt
 cd $RESULTDIR
 perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples $OUTNAME.2.txt -output $OUTNAME -thresh 0 -cov 300
 cd $CURRDIR

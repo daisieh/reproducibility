@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#### Map populations
+#### balsam_sample_data.txt is a file with the list of samples:
 
 if [ -z $REPOS ];
 then
@@ -17,9 +17,10 @@ echo "no samplefile specified"
 INFILE=balsam_sample_data.txt
 fi
 
-OUTNAME=$2;
+OUTNAME=$(basename "$INFILE" .txt);
 
-#### perform downstream analyses:
-#### generate a KML file for the populations:
-gawk -F "\t" 'NR > 1 {print $5"\t"$6"\t"$11"\t"$10}' $INFILE | sort | uniq > $OUTNAME.locs.txt
-perl $REPOS/phylogenomics/reporting/make_kml.pl -input $OUTNAME.locs.txt -c species_colors.txt -o $OUTNAME
+####1file_id	2sample	3DNA_code	4ADM_#	5species	6POP_CODE	7POPNAME	8POP#	9GROUP	10LONG	11LAT	12server	13path	14plastome
+####output is server, sample, path
+gawk '$0 !~ /^#/' $INFILE | gawk -F "\t" '{print $2"\t"$3"\t"$10"\t"$11}' > $OUTNAME.all.txt
+
+gawk -F "\t" '{print $6"\t"$10"\t"$11}' $INFILE | sort | uniq > $OUTNAME.pops.txt

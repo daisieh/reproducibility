@@ -52,12 +52,12 @@ cd $RESULTDIR
 #### run the bam to vcf pipeline:
 
 echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample"
-python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample
-python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p 8
+# python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample
+# python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p 8
 
 #### convert the vcfs to fasta:
 gawk '{print $2".vcf"}' ../$OUTNAME.1.txt > ../$OUTNAME.2.txt
-perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 300
+perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 100
 cd $CURRDIR
 
 #### perform downstream analyses:

@@ -8,7 +8,7 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 cd $(dirname "$2")
-REFS=$(pwd)/$(basename "$2")/*
+REFS=$(pwd)/$(basename "$2")/*.fasta
 cd $CWD
 
 for ref in $REFS
@@ -16,7 +16,12 @@ do
 	filename=$(basename "$ref")
 	refname="${filename%.*}"
 #
-	bowtie2-build $ref $refname.index 2>/dev/null
+	if [ -f $refname.index.1.bt2 ]
+	then
+		echo "using $refname as index"
+	else
+		bowtie2-build $ref $refname.index 2>/dev/null
+	fi
 	mkdir $refname
 	cd $CWD/$refname
 	pwd

@@ -1,11 +1,12 @@
 #west	LAB13_HapA	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-01/IX1907/C2F5EACXX_2/IX1907_C2F5EACXX_2_CCGCAA.bam
+#west	FRE13_HapA	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-01/IX1901/C2F5GACXX_3/IX1901_C2F5GACXX_3_TTAGGC.bam
+#west	HAY7_HapB	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-02/IX1912/C2F5EACXX_7/IX1912_C2F5EACXX_7_CACGAT.bam
 #west	DEN13_HapC	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0974/C14ERACXX_1/IX0974_C14ERACXX_1_TATAAT.bam
+#west	WHR3_HapC	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0995/C13P1ACXX_6/IX0995_C13P1ACXX_6_CACTCA.bam
 #east	RNA9_HapD	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-11-06/IX2049/C2PVTACXX_5/IX2049_C2PVTACXX_5_ATGAGC.bam
 #east	NWL7_HapE	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-11-06/IX2037/C2P8KACXX_1/IX2037_C2P8KACXX_1_TAGCTT.bam
-#west	HAY7_HapB	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-02/IX1912/C2F5EACXX_7/IX1912_C2F5EACXX_7_CACGAT.bam
-#west	FRE13_HapA	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-01/IX1901/C2F5GACXX_3/IX1901_C2F5GACXX_3_TTAGGC.bam
-#west	WHR3_HapC	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0995/C13P1ACXX_6/IX0995_C13P1ACXX_6_CACTCA.bam
 #east	POR12_HapE	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-09/IX0384/D15K7ACXX_3/IX0384_D15K7ACXX_3_AAGCGA.bam
 #east	ROS4_Unk	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-09-05/IX0842/D17UBACXX_5/IX0842_D17UBACXX_5_CAGGCG.bam
 #west	STL9_DNA825	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0991/C13P1ACXX_2/IX0991_C13P1ACXX_2_GAAACC.bam
-west	P_max_595	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0394/D15NHACXX_7/IX0394_D15NHACXX_7_CGAGAA.bam
+#west	P_max_595	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0394/D15NHACXX_7/IX0394_D15NHACXX_7_CGAGAA.bam
+east	Pt13020402	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-30/IX2032/C2P5YACXX_4/IX2032_C2P5YACXX_4_TCGAAG.bam

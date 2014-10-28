@@ -19,10 +19,11 @@ do
 	file=${arr[9]};
 	if [ -f $file ];
 	then
-		samtools view $file | head -n 1 | grep "Chr01"
-		test=$?
-		echo $test
-	echo -e "$line"
+		echo $file
+#		samtools view $file | head -n 1 | grep "Chr01"
+#		test=$?
+#		echo $test
+#		echo -e "$line"
 	fi
 done;
 };

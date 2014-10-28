@@ -19,7 +19,7 @@ do
 	if [ -f ${arr[9]} ];
 	then
 # 		echo ${arr[9]};
-		samtools view ${arr[9]} | head -n 1 | grep "Chr01"
+		samtools view ${arr[9]} | head -n 1 | grep "Chr01" > /dev/null
 # 		test=$?
 # 		echo $test
 		if [ $? -eq 0 ]

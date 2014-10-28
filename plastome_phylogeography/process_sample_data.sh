@@ -5,7 +5,7 @@
 #### all_sample_data.txt is a file with the list of samples:
 ####1file_id	2sample	3DNA_code	4species	5pop_code	6pop_name	7LONG	8LAT	9server	10path
 
-IFS='%'
+IFS='\t'
 #### remove commented lines:
 gawk '$0 !~ /^#/' $1 |
 

@@ -18,7 +18,7 @@ do
 	arr=($line);
 	if [ -f ${arr[9]} ];
 	then
-	echo $line
+	echo -e $line
 	fi
 done;
 };

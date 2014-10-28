@@ -15,5 +15,6 @@
 #east	RNA4_HapD	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-30/IX2035/C2P5YACXX_7/IX2035_C2P5YACXX_7_ACTGAT.bam
 #east	RNA9_HapC	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-11-06/IX2049/C2PVTACXX_5/IX2049_C2PVTACXX_5_ATGAGC.bam
 #east	ROS4_Unk	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-09-05/IX0842/D17UBACXX_5/IX0842_D17UBACXX_5_CAGGCG.bam
-west	STL9_DNA825	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0991/C13P1ACXX_2/IX0991_C13P1ACXX_2_GAAACC.bam
-west	WHR3_HapB	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0995/C13P1ACXX_6/IX0995_C13P1ACXX_6_CACTCA.bam
+#west	STL9_DNA825	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0991/C13P1ACXX_2/IX0991_C13P1ACXX_2_GAAACC.bam
+#west	WHR3_HapB	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-17/IX0995/C13P1ACXX_6/IX0995_C13P1ACXX_6_CACTCA.bam
+west	MCHA19_2	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-03/INX951/C0KW2ACXX_7/INX951_C0KW2ACXX_7_CCGTCC.bam

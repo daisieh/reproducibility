@@ -16,15 +16,13 @@ gawk '$0 !~ /^#/' $1 |
 while read line
 do
 	arr=($line);
-	f=${arr[9]};
-		echo $f
-# 	if [ -f $f ];
-# 	then
-# #		samtools view $file | head -n 1 | grep "Chr01"
-# #		test=$?
-# #		echo $test
-# #		echo -e "$line"
-# 	fi
+	if [ -f ${arr[9]} ];
+	then
+		samtools view ${arr[9]} | head -n 1 | grep "Chr01"
+		test=$?
+		echo $test
+#		echo -e "$line"
+	fi
 done;
 };
 

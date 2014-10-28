@@ -18,13 +18,13 @@ do
 	arr=($line);
 	f=${arr[9]};
 		echo $f
-	if [ -f $f ];
-	then
-#		samtools view $file | head -n 1 | grep "Chr01"
-#		test=$?
-#		echo $test
-#		echo -e "$line"
-	fi
+# 	if [ -f $f ];
+# 	then
+# #		samtools view $file | head -n 1 | grep "Chr01"
+# #		test=$?
+# #		echo $test
+# #		echo -e "$line"
+# 	fi
 done;
 };
 

@@ -16,10 +16,10 @@ gawk '$0 !~ /^#/' $1 |
 while read line
 do
 	arr=($line);
-	file=${arr[9]};
-	if [ -f $file ];
+	f=${arr[9]};
+		echo $f
+	if [ -f $f ];
 	then
-		echo $file
 #		samtools view $file | head -n 1 | grep "Chr01"
 #		test=$?
 #		echo $test

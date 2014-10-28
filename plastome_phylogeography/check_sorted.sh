@@ -20,9 +20,14 @@ do
 	then
 		echo ${arr[9]};
 		samtools view ${arr[9]} | head -n 1 | grep "Chr01"
-		test=$?
-		echo $test
-#		echo -e "$line"
+# 		test=$?
+# 		echo $test
+		if [ $? -eq 0 ]
+		then
+			echo -e "$line\tsorted"
+		else
+			echo -e "$line\tunsorted"
+		fi
 	fi
 done;
 };

@@ -8,18 +8,17 @@
 #### remove commented lines:
 gawk '$0 !~ /^#/' $1 |
 
-#### then print server, fileid, path
-gawk -F "\t" '{print $9"\t"$1"\t"$10}' |
+# #### then print server, fileid, path
+# gawk -F "\t" '{print $9"\t"$1"\t"$10}' |
 
 #### then print only lines that have paths that exist
 {
 while read line
 do
 	arr=($line);
-	if [ -f ${arr[2]} ];
+	if [ -f ${arr[9]} ];
 	then
 	echo $line
 	fi
 done;
 };
-

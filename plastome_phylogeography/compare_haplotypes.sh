@@ -22,13 +22,16 @@ do
 		samtools view -f 12 -F 256 $location | head -n 4000000 | samtools view -S -u - > $sample.small.bam
 
 		$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
+		rm $sample.small.bam
 		$REPOS/phylogenomics/converting/unpair_seqs.pl $sample.fastq $sample
+		rm $sample.fastq
+
 		for ref in $REFS
 		do
 		echo "looking at $ref"
 			filename=$(basename "$ref")
 			refname="${filename%.*}"
-		#
+
 			if [ -f $refname.index.1.bt2 ]
 			then
 				echo "using $refname as index"
@@ -59,7 +62,7 @@ do
 			fi
 			cd $CWD
 		done
-		rm $sample.small.bam $sample.fastq $sample.*.fastq
+		rm $sample.*.fastq
 	fi
 done < $samplefile
 

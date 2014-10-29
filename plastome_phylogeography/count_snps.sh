@@ -8,7 +8,7 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 
-REFS=$2/*
+REFS=$2/*.fasta
 results=results
 mkdir $results
 

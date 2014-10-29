@@ -24,8 +24,8 @@ do
 		$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
 		$REPOS/phylogenomics/converting/unpair_seqs.pl $sample.fastq $sample
 		for ref in $REFS
-		echo "looking at $ref"
 		do
+		echo "looking at $ref"
 			filename=$(basename "$ref")
 			refname="${filename%.*}"
 		#

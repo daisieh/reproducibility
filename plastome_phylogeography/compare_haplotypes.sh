@@ -42,10 +42,10 @@ do
 			then
 				echo "using $ref as reference"
 				echo "processing $sample..."
-#
+
     			echo "samtools view $location | head -n 2000000 | samtools view -S -u - > $sample.small.bam"
-    			samtools view $location | head -n 2000000 | samtools view -S -u - > $sample.small.bam
-#
+				samtools view -f 12 -F 256 $location | head -n 2000000 | samtools view -S -u - > $sample.small.bam
+
         		$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
         		$REPOS/phylogenomics/converting/unpair_seqs.pl $sample.fastq $sample
         		bowtie2 -p 8 --no-unal --no-discordant --no-mixed --no-contain --no-unal -x ../$refname.index -1 $sample.1.fastq -2 $sample.2.fastq -S $sample.sam

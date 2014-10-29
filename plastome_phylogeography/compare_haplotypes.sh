@@ -19,7 +19,7 @@ do
 	if [ -f ${arr[2]} ];
 	then
 		echo "processing $sample..."
-		samtools view -f 12 -F 256 $location | head -n 4000000 | samtools view -S -u - > $sample.small.bam
+		samtools view -f 12 -F 256 $location | head -n 2000000 | samtools view -S -u - > $sample.small.bam
 
 		$REPOS/phylogenomics/converting/bam_to_fastq.sh $sample.small.bam $sample
 		rm $sample.small.bam

@@ -46,6 +46,7 @@ OUTNAME=$RESULTDIR/$filename
 
 mkdir $RESULTDIR
 #### check to remove any files to paths that don't exist on this machine.
+
 bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $INFILE |
 gawk '$0 !~ /^#/' |
 
@@ -54,6 +55,7 @@ gawk '$0 !~ /^#/' |
 
 #### then print only lines that have paths that exist
 {
+cd $RESULTDIR
 while read line
 do
 	arr=($line);

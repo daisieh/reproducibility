@@ -46,19 +46,38 @@ OUTNAME=$RESULTDIR/$filename
 
 mkdir $RESULTDIR
 #### check to remove any files to paths that don't exist on this machine.
-bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $INFILE > $OUTNAME.1.txt
+bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $INFILE |
+gawk '$0 !~ /^#/' |
+
+# #### then print server, fileid, path
+# gawk -F "\t" '{print $9"\t"$1"\t"$10}' |
+
+#### then print only lines that have paths that exist
+{
+while read line
+do
+	arr=($line);
+	if [ -f "${arr[9]}.vcf" ];
+	then
+	echo "${arr[9]}.vcf already exists"
+	else
+	echo -e "$line" >> $OUTNAME.0.txt
+	fi
+done;
+};
+
+gawk -F "\t" '{print $9"\t"$1"\t"$10}' $OUTNAME.0.txt > $OUTNAME.1.txt
 
 cd $RESULTDIR
 #### run the bam to vcf pipeline:
 
-echo "python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample"
-python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample
-python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p 8
-
-#### convert the vcfs to fasta:
-gawk '{print $2".vcf"}' ../$OUTNAME.1.txt > ../$OUTNAME.2.txt
-perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 100
-cd $CURRDIR
+# python $REPOS/phylogenomics/python/bwa_to_bam.py -i ../$OUTNAME.1.txt -r $REF -p 8 $subsample
+# python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p 8
+#
+# #### convert the vcfs to fasta:
+# gawk '{print $2".vcf"}' ../$OUTNAME.1.txt > ../$OUTNAME.2.txt
+# perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 100
+# cd $CURRDIR
 
 #### perform downstream analyses:
 

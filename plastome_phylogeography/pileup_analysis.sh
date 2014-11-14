@@ -61,31 +61,3 @@ python $REPOS/phylogenomics/python/bam_to_vcf.py -i ../$OUTNAME.1.txt -r $REF -p
 gawk '{print $2".vcf"}' ../$OUTNAME.1.txt > ../$OUTNAME.2.txt
 perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 100
 cd $CURRDIR
-
-#### perform downstream analyses:
-
-#### trim strict to define backbone haplotype groups
-# perl $REPOS/phylogenomics/parsing/trim_missing.pl -fasta $OUTNAME.fasta -out $OUTNAME_strict -row 0.05 -col 0.05
-# perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME_strict.fasta $OUTNAME_strict.nex
-# sed s/OUTNAME/$OUTNAME/ <paup.txt >$OUTNAME_paup.txt
-# cat $OUTNAME_strict.nex $OUTNAME_paup.txt > $OUTNAME_backbone.nex
-# paup $OUTNAME_backbone.nex
-#### get support values for the backbone branches
-
-#### look into how PASTA divides an unrooted tree into subgraphs
-
-#### mapping populations:
-#### map with hap A in red / everything else in white
-#### possibly pies for haplotypes.
-#
-#### #convert to nexus:
-# perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME.locs.fasta $OUTNAME.locs.nex
-
-#### trim missing data at the 0.1 missing threshold:
-# perl $REPOS/phylogenomics/parsing/trim_missing.pl -in $OUTNAME.fasta -out $OUTNAME.trimmed.fasta -row 0.7 -col 0.1
-# assign all individuals with a more relaxed trimming to assign to hap groups
-# investigate possible patterns for identical haplotypes: within populations? How frequent?
-# use hap groups to inform sampling strategy for de novo assembly
-
-#### need to do a couple more de novo plastomes for the hap B
-#### filter all balsam reads against the 5 balsam haplotype reference sequences: if the number of SNPs is never below a similarity threshold (prob ~20 SNPS) to any of the haplotypes, then it is probably not a balsam plastome.

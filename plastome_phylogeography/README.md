@@ -8,7 +8,7 @@ The master sample list used for this paper is [all_samples.txt](https://github.c
 
 Overview phylogeny
 ==================
-A subset of samples, representing the within-species diversity as well as the relative phylogenetic position of the plastomes of the species, was piled up against the Salix interior plastome (Genbank [KJ742926](http://www.ncbi.nlm.nih.gov/nuccore/KJ742926)) using the `pileup_analysis.sh` script:
+A subset of samples, representing the within-species diversity as well as the relative phylogenetic position of the plastomes of the species, was piled up against the _Salix interior_ plastome (Genbank [KJ742926](http://www.ncbi.nlm.nih.gov/nuccore/KJ742926)) using the `pileup_analysis.sh` script:
 
   ```bash pileup_analysis.sh overview_samples.txt salix_cp.gb subsample```
 

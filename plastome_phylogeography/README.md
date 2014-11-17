@@ -4,7 +4,7 @@ Note: `$PHYLOGENOMICS` refers to [this repository](https://github.com/daisieh/ph
 
 Sampling
 ========
-The master sample list used for this paper is [all_samples.txt](https://github.com/daisieh/reproducibility/blob/plastome-phylogeography/plastome_phylogeography/all_samples.txt). This file contains the names used to refer to the samples throughout, as well as their provenances, species IDs, and paths on the POPCAN servers.
+The master sample list used for this paper is [all_samples.txt](https://github.com/daisieh/reproducibility/blob/plastome-phylogeography/plastome_phylogeography/all_samples.txt). This file contains the names used to refer to the samples throughout, as well as their provenances, species IDs, and paths on the POPCAN servers. Sequencing was performed as paired-end 100bp reads on an Illumina HiSeq.
 
 Overview phylogeny
 ==================

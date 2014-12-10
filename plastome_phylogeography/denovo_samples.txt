@@ -20,4 +20,5 @@
 #west	MCHA19_2	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-03/INX951/C0KW2ACXX_7/INX951_C0KW2ACXX_7_CCGTCC.bam
 #west	QFRS16_4	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-02/INX934/D0UJNACXX_1/INX934_D0UJNACXX_1_ATCACG.bam
 #east	PHLA22_5	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-06-13/IX0360/C0W04ACXX_1/IX0360_C0W04ACXX_1_TATAAT.bam
-east	QFRS16_1	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-06-12/IX0347/D104PACXX_3/IX0347_D104PACXX_3_AAATGC.bam	unsorted
+#east	QFRS16_1	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-06-12/IX0347/D104PACXX_3/IX0347_D104PACXX_3_AAATGC.bam	unsorted
+west	Pa13020301	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-11-29/IX2054/C34BNACXX_4/IX2054_C34BNACXX_4_GGCCTG.bam	unsorted

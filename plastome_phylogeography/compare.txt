@@ -7,3 +7,4 @@ east	QFRS16_1_PG	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-06-
 west	P_max_595	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0394/D15NHACXX_7/IX0394_D15NHACXX_7_CGAGAA.bam	unsorted
 west	Pfre186_DNA215	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-10/INX975/D0U7RACXX_8/INX975_D0U7RACXX_8_GTGGCC.bam	unsorted
 west	Pa13020301_T1	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-11-29/IX2054/C34BNACXX_4/IX2054_C34BNACXX_4_GGCCTG.bam	unsorted
+west	PhetD_ABG2011	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2013-10-24/IX2055/C2NAMACXX_5/IX2055_C2NAMACXX_5_ACATCT.bam

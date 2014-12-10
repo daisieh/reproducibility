@@ -47,9 +47,9 @@ OUTNAME=$RESULTDIR/$filename
 mkdir $RESULTDIR
 #### check to remove any files to paths that don't exist on this machine.
 
-# bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $INFILE |
-# # #### then print server, fileid, path
-# gawk -F "\t" '{print $9"\t"$1"\t"$10}' > $OUTNAME.1.txt
+bash $REPOS/reproducibility/plastome_phylogeography/process_sample_data.sh $INFILE |
+# #### then print server, fileid, path
+gawk -F "\t" '{print $9"\t"$1"\t"$10}' > $OUTNAME.1.txt
 
 cd $RESULTDIR
 #### run the bam to vcf pipeline:

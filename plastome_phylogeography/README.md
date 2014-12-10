@@ -22,3 +22,15 @@ Then RAxML was performed on the trimmed file, using the GTR+gamma model, with 10
 
   ```perl $PHYLOGENOMICS/parsing/raxml.pl -in overview_strict.fasta -out overview_strict.nex```
 
+Species assignment
+==================
+An individual from each major clade in the overview phylogeny was selected for denovo plastome assembly:
+```bash ~/reproducibility/plastome_phylogeography/denovo_plastomes.sh ~/reproducibility/plastome_phylogeography/denovo_samples.txt ~/reproducibility/plastome_phylogeography/trichocarpa_cp.gb```
+
+These denovo assemblies were then used as comparisons for each individual: each sample was piled up against each denovo sequence and the snps were counted. The denovo sequence that had the smallest sequence divergence from the sample was chosen as the closest species/plastotype representative.
+
+
+Haplotype assignment
+====================
+Based on the overview phylogeny, the overview samples were assigned to haplotype groups based on the major bifurcations in the tree. Group PG (Prince George) represents a unique plastotype distinct from both _P. trichocarpa_ and _P. balsamifera_. Both _P. trichocarpa_ and _P. balsamifera_ were divided into three haplotypes: in both species, the third haplotype is the one found in most individuals.
+

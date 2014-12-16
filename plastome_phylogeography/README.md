@@ -28,6 +28,7 @@ Then RAxML was performed on the trimmed file, using the GTR+gamma model, with 10
 Species assignment
 ==================
 An individual from each major clade in the overview phylogeny was selected for denovo plastome assembly:
+
   ```bash ~/reproducibility/plastome_phylogeography/denovo_plastomes.sh ~/reproducibility/plastome_phylogeography/denovo_samples.txt ~/reproducibility/plastome_phylogeography/trichocarpa_cp.gb
   ```
 
@@ -41,10 +42,12 @@ Based on the overview phylogeny, the overview samples were assigned to haplotype
 Data aggregation
 ================
 The combined datasets were aggregated by population:
+
   ```perl $REPOS/reproducibility/plastome_phylogeography/parse_haplotypes.pl $REPOS/reproducibility/plastome_phylogeography/all_samples.txt $REPOS/reproducibility/plastome_phylogeography/results/individual_haplotypes.txt > $REPOS/reproducibility/plastome_phylogeography/results/mapping/map_haps.txt
   ```
 
 The resulting dataset was used in R to generate the aggregated maps:
+
   ```library(maps)
 library(plotrix)
 library(mapdata)

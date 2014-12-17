@@ -8,6 +8,7 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 cd $(dirname "$2")
+pwd
 ls > refs.txt
 cat refs.txt
 cd $CWD

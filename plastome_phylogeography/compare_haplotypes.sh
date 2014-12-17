@@ -8,8 +8,8 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 cd $(dirname "$2")
-ls > ../refs.txt
-cat ../refs.txt
+ls > refs.txt
+cat refs.txt
 cd $CWD
 
 while read line

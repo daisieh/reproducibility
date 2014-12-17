@@ -62,7 +62,7 @@ do
 				rm $sample.bcf $sample.sorted.bam
 			fi
 			cd $CWD
-		done < $reffile
+		done < refs.txt
 		rm $sample.*.fastq
 	fi
 done < $samplefile

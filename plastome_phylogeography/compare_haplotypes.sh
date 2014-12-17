@@ -9,7 +9,7 @@ cd $CWD
 
 cd $(dirname "$2")
 ls > ../refs.txt
-REFS=$(pwd)/$(basename "$2")/*.fasta
+cat ../refs.txt
 cd $CWD
 
 while read line

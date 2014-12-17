@@ -9,8 +9,8 @@ cd $CWD
 
 cd $2
 pwd
-ls > refs.txt
-cat refs.txt
+ls > $CWD/refs.txt
+cat $CWD/refs.txt
 cd $CWD
 
 while read line

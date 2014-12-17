@@ -8,7 +8,7 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 cd $(dirname "$2")
-ls > refs.txt
+ls > ../refs.txt
 REFS=$(pwd)/$(basename "$2")/*.fasta
 cd $CWD
 
@@ -67,6 +67,6 @@ do
 	fi
 done < $samplefile
 
-rm $REFS.fai
+# rm $REFS.fai
 $REPOS/reproducibility/plastome_phylogeography/count_snps.sh $1 $2
 $REPOS/phylogenomics/converting/combine_files.pl -input results/* -head -names > results.txt

@@ -8,7 +8,7 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 cd $2
-pwd
+REFS=$(pwd)
 ls > $CWD/refs.txt
 cat $CWD/refs.txt
 cd $CWD
@@ -30,7 +30,7 @@ do
 
 		while read refline
 		do
-			ref=$(pwd)/$(basename "$2")/$refline
+			ref=$REFS/$refline
 			echo "looking at $ref"
 			filename=$(basename "$ref")
 			refname="${filename%.*}"

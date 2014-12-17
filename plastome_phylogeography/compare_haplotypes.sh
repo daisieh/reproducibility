@@ -8,6 +8,7 @@ samplefile=$(pwd)/$(basename "$1")
 cd $CWD
 
 cd $(dirname "$2")
+ls > refs.txt
 REFS=$(pwd)/$(basename "$2")/*.fasta
 cd $CWD
 
@@ -26,9 +27,10 @@ do
 		$REPOS/phylogenomics/converting/unpair_seqs.pl $sample.fastq $sample
 		rm $sample.fastq
 
-		for ref in $REFS
+		while read refline
 		do
-		echo "looking at $ref"
+			ref=$(pwd)/$(basename "$2")/$refline
+			echo "looking at $ref"
 			filename=$(basename "$ref")
 			refname="${filename%.*}"
 
@@ -60,7 +62,7 @@ do
 				rm $sample.bcf $sample.sorted.bam
 			fi
 			cd $CWD
-		done
+		done < $reffile
 		rm $sample.*.fastq
 	fi
 done < $samplefile

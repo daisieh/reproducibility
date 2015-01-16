@@ -63,6 +63,7 @@ dat <- read.table("~/Documents/Work/Sandbox/reproducibility/plastome_phylogeogra
 map("worldHires","Canada",xlim=c(-155,-60),ylim=c(34,70),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0)
 map("worldHires","USA",xlim=c(-155,-60),ylim=c(34,70),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0,add=TRUE)
 map.axes()
+
 for (x in 1:nrow(dat)) {  {floating.pie(dat$long[x],dat$lat[x],c(dat$T1[x],dat$T2[x],dat$T3[x],dat$PG[x],dat$B1[x],dat$B2[x],dat$B3[x]),radius=0.7,border=1,col=c("#DFDFFF","#7F7FFF","#0000FF","yellow","#FFC393","#FF9F52","#FF7300")) }}
 
 # tricho inset
@@ -70,4 +71,8 @@ map("worldHires","Canada",xlim=c(-130,-120),ylim=c(44,55),fill=TRUE,col="#FFFFFF
 map("worldHires","USA",xlim=c(-130,-120),ylim=c(44,55),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0,add=TRUE)
 map.axes()
 for (x in 1:nrow(dat)) {  {floating.pie(dat$long[x],dat$lat[x],c(dat$T1[x],dat$T2[x],dat$T3[x],dat$PG[x],dat$B1[x],dat$B2[x],dat$B3[x]),radius=0.2,border=1,col=c("#DFDFFF","#7F7FFF","#0000FF","yellow","#FFC393","#FF9F52","#FF7300")) }}
+
+# locality of Prince George, BC:
+# 53°55′01″N 122°44′58″W = -122.749,53.917
+floating.pie(-122.749,53.917,c(1),radius=0.1,border=1)
   ```

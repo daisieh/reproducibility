@@ -50,7 +50,7 @@ do
 			mv $sample.reduced.bam $sample.bam
 			samtools sort $sample.bam $sample.sorted
 			rm $sample.bam
-			samtools mpileup -B -C50 -I -f $ref -u $sample.sorted.bam > $sample.bcf
+			samtools mpileup -B -C50 -I -f ../$ref -u $sample.sorted.bam > $sample.bcf
 			bcftools view -c $sample.bcf > $sample.vcf
 			rm $sample.bcf $sample.sorted.bam
 		fi

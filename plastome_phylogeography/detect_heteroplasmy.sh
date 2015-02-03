@@ -36,7 +36,6 @@ do
 		mkdir $refname
 		cd $CWD/$refname
 		pwd
-		rm results.txt
 
 		if [ -f $sample.vcf ]
 		then

@@ -65,6 +65,17 @@ map("worldHires","USA",xlim=c(-155,-60),ylim=c(34,70),fill=TRUE,col="#FFFFFF",bg
 map.axes()
 for (x in 1:nrow(dat)) {  {floating.pie(dat$long[x],dat$lat[x],c(dat$T1[x],dat$T2[x],dat$T3[x],dat$PG[x],dat$B1[x],dat$B2[x],dat$B3[x]),radius=0.7,border=1,col=c("#DFDFFF","#7F7FFF","#0000FF","yellow","#FFC393","#FF9F52","#FF7300")) }}
 
+map("worldHires","Canada",xlim=c(-155,-60),ylim=c(34,70),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0)
+map("worldHires","USA",xlim=c(-155,-60),ylim=c(34,70),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0,add=TRUE)
+map.axes()
+for (x in 1:nrow(dat)) {
+if (dat$species[x] == "PTRI") {
+draw.circle(dat$long[x],dat$lat[x],radius=0.4,nv=100,border=1,lty=1,lwd=1,col="#0000FF") }
+if (dat$species[x] == "PBAL") {
+draw.circle(dat$long[x],dat$lat[x],radius=0.4,nv=100,border=1,lty=1,lwd=1,col="#FF7300") }
+}
+
+
 # tricho inset
 map("worldHires","Canada",xlim=c(-130,-120),ylim=c(44,55),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0)
 map("worldHires","USA",xlim=c(-130,-120),ylim=c(44,55),fill=TRUE,col="#FFFFFF",bg="#EEEEEE",interior=TRUE,resolution=0,add=TRUE)

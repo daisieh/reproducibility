@@ -30,7 +30,7 @@ do
 	echo "  subset part (6GB) of the bam file"
 	mkdir $sample
 	cd $sample
-	samtools view $location | head -n 3000000 | samtools view -S -u - > $sample.small.bam
+	samtools view $location | head -n 30000000 | samtools view -S -u - > $sample.small.bam
 #
 	echo "  making fasta from bam"
 	$REPOS/phylogenomics/converting/bam_to_fasta.sh $sample.small.bam $sample

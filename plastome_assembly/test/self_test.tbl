@@ -989,3 +989,9 @@
 			gene	rps19
 			product	30S ribosomal protein S19
 			transl_table	11
+129249	157094	repeat_region
+			rpt_type	inverted
+			note	inverted repeat A
+84923	112749	repeat_region
+			rpt_type	inverted
+			note	inverted repeat B

@@ -1,85 +1,85 @@
->Features	nisqually [organism=Populus trichocarpa][moltype=Genomic DNA][location=chloroplast][topology=Circular][gcode=11]
+>Features	salix [organism=Salix interior][moltype=Genomic DNA][location=chloroplast][topology=Circular][gcode=11]
 77	4	gene
 			gene	trnH
 77	4	tRNA
 			gene	trnH
 			product	tRNA-His
-1379	318	gene
+1390	329	gene
 			gene	psbA
-1379	318	CDS
+1390	329	CDS
 			db_xref	GI:659103525
 			codon_start	1
 			protein_id	AID60451.1
 			gene	psbA
 			product	photosystem II D1-reaction-center protein
 			transl_table	11
-4309	1681	gene
+4305	1681	gene
 			gene	trnK
-4309	4273	tRNA
+4305	4269	tRNA
 1715	1681
 			gene	trnK
 			product	tRNA-Lys
-3513	1981	gene
+3511	1979	gene
 			gene	matK
-3513	1981	CDS
+3511	1979	CDS
 			db_xref	GI:659103526
 			codon_start	1
 			protein_id	AID60452.1
 			gene	matK
 			product	maturase K
 			transl_table	11
-5657	5586	gene
+5327	5256	gene
 			gene	trnQ
-5657	5586	tRNA
+5327	5256	tRNA
 			gene	trnQ
 			product	tRNA-Gln
-6006	6200	gene
+5671	5865	gene
 			gene	psbK
-6006	6200	CDS
+5671	5865	CDS
 			db_xref	GI:659103527
 			codon_start	1
 			protein_id	AID60453.1
 			gene	psbK
 			product	photosystem II 39-kDa K protein
 			transl_table	11
-6615	6725	gene
+6321	6431	gene
 			gene	psbI
-6615	6725	CDS
+6321	6431	CDS
 			db_xref	GI:659103528
 			codon_start	1
 			protein_id	AID60454.1
 			gene	psbI
 			product	photosystem II 48-kDa truncated I protein
 			transl_table	11
-6963	6876	gene
+6655	6568	gene
 			gene	trnS
-6963	6876	tRNA
+6655	6568	tRNA
 			gene	trnS
 			product	tRNA-Ser
-7710	8479	gene
+7248	8017	gene
 			gene	trnG
-7710	7732	tRNA
-8432	8479
+7248	7270	tRNA
+7970	8017
 			gene	trnG
 			product	tRNA-Gly
-8706	8777	gene
+8233	8304	gene
 			gene	trnR
-8706	8777	tRNA
+8233	8304	tRNA
 			gene	trnR
 			product	tRNA-Arg
-10443	8920	gene
+10067	8544	gene
 			gene	atpA
-10443	8920	CDS
+10067	8544	CDS
 			db_xref	GI:659103529
 			codon_start	1
 			protein_id	AID60455.1
 			gene	atpA
 			product	ATP synthase CF1 alpha subunit
 			transl_table	11
-11780	10501	gene
+11403	10121	gene
 			gene	atpF
-11780	11637	CDS
-10911	10501
+11403	11260	CDS
+10531	10121
 			db_xref	GI:659103530
 			codon_start	1
 			protein_id	AID60456.1
@@ -87,36 +87,36 @@
 			product	ATP synthase CF0 subunit I
 			note	ATPase I subunit; ATP synthetase I subunit
 			transl_table	11
-12466	12221	gene
+12146	11901	gene
 			gene	atpH
-12466	12221	CDS
+12146	11901	CDS
 			db_xref	GI:659103531
 			codon_start	1
 			protein_id	AID60457.1
 			gene	atpH
 			product	ATP synthase CF0 subunit III
 			transl_table	11
-14219	13476	gene
+13886	13143	gene
 			gene	atpI
-14219	13476	CDS
+13886	13143	CDS
 			db_xref	GI:659103532
 			codon_start	1
 			protein_id	AID60458.1
 			gene	atpI
 			product	ATP synthase CF0 A chain subunit IV
 			transl_table	11
-15138	14428	gene
+14812	14102	gene
 			gene	rps2
-15138	14428	CDS
+14812	14102	CDS
 			db_xref	GI:659103533
 			codon_start	1
 			protein_id	AID60459.1
 			gene	rps2
 			product	30S ribosomal protein S2
 			transl_table	11
-19611	15439	gene
+19319	15141	gene
 			gene	rpoC2
-19611	15439	CDS
+19319	15141	CDS
 			db_xref	GI:659103534
 			codon_start	1
 			protein_id	AID60460.1
@@ -124,10 +124,10 @@
 			product	RNA polymerase beta'' chain
 			note	RNA polymerase beta' subunit-2; RNA polymerase beta'' subunit
 			transl_table	11
-22641	19793	gene
+22351	19501	gene
 			gene	rpoC1
-22641	22189	CDS
-21409	19793
+22351	21899	CDS
+21117	19501
 			db_xref	GI:659103535
 			codon_start	1
 			protein_id	AID60461.1
@@ -135,70 +135,70 @@
 			product	RNA polymerase beta' chain
 			note	RNA polymerase beta' subunit-1; RNA polymerase beta' subunit
 			transl_table	11
-25859	22647	gene
+25569	22357	gene
 			gene	rpoB
-25859	22647	CDS
+25569	22357	CDS
 			db_xref	GI:659103536
 			codon_start	1
 			protein_id	AID60462.1
 			gene	rpoB
 			product	RNA polymerase beta chain
 			transl_table	11
-27078	27148	gene
+26809	26879	gene
 			gene	trnC
-27078	27148	tRNA
+26809	26879	tRNA
 			gene	trnC
 			product	tRNA-Cys
-27541	27630	gene
+27268	27357	gene
 			gene	petN
-27541	27630	CDS
+27268	27357	CDS
 			db_xref	GI:659103537
 			codon_start	1
 			protein_id	AID60463.1
 			gene	petN
 			product	cytochrome b6/f subunit VIII
 			transl_table	11
-29036	28932	gene
+28542	28438	gene
 			gene	psbM
-29036	28932	CDS
+28542	28438	CDS
 			db_xref	GI:659103538
 			codon_start	1
 			protein_id	AID60464.1
 			gene	psbM
 			product	photosystem II M protein
 			transl_table	11
-30343	30270	gene
+29607	29534	gene
 			gene	trnD
-30343	30270	tRNA
+29607	29534	tRNA
 			gene	trnD
 			product	tRNA-Asp
-30891	30808	gene
+30138	30055	gene
 			gene	trnY
-30891	30808	tRNA
+30138	30055	tRNA
 			gene	trnY
 			product	tRNA-Tyr
-31023	30951	gene
+30270	30198	gene
 			gene	trnE
-31023	30951	tRNA
+30270	30198	tRNA
 			gene	trnE
 			product	tRNA-Glu
-31264	31335	gene
+30534	30605	gene
 			gene	trnT
-31264	31335	tRNA
+30534	30605	tRNA
 			gene	trnT
 			product	tRNA-Thr
-32775	33836	gene
+32118	33179	gene
 			gene	psbD
-32775	33836	CDS
+32118	33179	CDS
 			db_xref	GI:659103539
 			codon_start	1
 			protein_id	AID60465.1
 			gene	psbD
 			product	photosystem II D2-reaction-center protein
 			transl_table	11
-33784	35205	gene
+33127	34548	gene
 			gene	psbC
-33784	35205	CDS
+33127	34548	CDS
 			db_xref	GI:659103540
 			codon_start	1
 			protein_id	AID60466.1
@@ -206,42 +206,42 @@
 			product	photosystem II CP43-chlorophyll
 			note	PSII 43 kDa protein; photosystem II 44 kDa apoprotein
 			transl_table	11
-35530	35441	gene
+34874	34785	gene
 			gene	trnS
-35530	35441	tRNA
+34874	34785	tRNA
 			gene	trnS
 			product	tRNA-Ser
-35907	36095	gene
+35267	35455	gene
 			gene	psbZ
-35907	36095	CDS
+35267	35455	CDS
 			db_xref	GI:659103541
 			codon_start	1
 			protein_id	AID60467.1
 			gene	psbZ
 			product	photosystem II subunit psbZ
 			transl_table	11
-36696	36766	gene
+35899	35969	gene
 			gene	trnG
-36696	36766	tRNA
+35899	35969	tRNA
 			gene	trnG
 			product	tRNA-Gly
-37011	36938	gene
+36250	36177	gene
 			gene	trnM
-37011	36938	tRNA
+36250	36177	tRNA
 			gene	trnM
 			product	tRNA-Met
-37479	37177	gene
+36718	36416	gene
 			gene	rps14
-37479	37177	CDS
+36718	36416	CDS
 			db_xref	GI:659103542
 			codon_start	1
 			protein_id	AID60468.1
 			gene	rps14
 			product	30S ribosomal protein S14
 			transl_table	11
-39802	37598	gene
+39041	36837	gene
 			gene	psaB
-39802	37598	CDS
+39041	36837	CDS
 			db_xref	GI:659103543
 			codon_start	1
 			protein_id	AID60469.1
@@ -249,9 +249,9 @@
 			product	photosystem I P700 apoprotein subunit Ib
 			note	PSI P700 apoprotein A2; photosystem I P700 apoprotein A2
 			transl_table	11
-42080	39828	gene
+41319	39067	gene
 			gene	psaA
-42080	39828	CDS
+41319	39067	CDS
 			db_xref	GI:659103544
 			codon_start	1
 			protein_id	AID60470.1
@@ -259,252 +259,216 @@
 			product	photosystem I P700 apoprotein subunit Ia
 			note	PSI P700 apoprotein A1; photosystem I P700 apoprotein A1
 			transl_table	11
-44717	42698	gene
+43884	41952	gene
 			gene	ycf3
-44717	44592	CDS
-43866	43639
-42850	42698
+43884	43759	CDS
+43032	42805
+42104	41952
 			db_xref	GI:659103545
 			codon_start	1
 			protein_id	AID60471.1
 			gene	ycf3
 			product	photosystem I assembly related protein
 			transl_table	11
-45278	45364	gene
+44432	44518	gene
 			gene	trnS
-45278	45364	tRNA
+44432	44518	tRNA
 			gene	trnS
 			product	tRNA-Ser
-46258	45653	gene
+45410	44805	gene
 			gene	rps4
-46258	45653	CDS
+45410	44805	CDS
 			db_xref	GI:659103546
 			codon_start	1
 			protein_id	AID60472.1
 			gene	rps4
 			product	ribosomal protein S4
 			transl_table	11
-46554	46482	gene
+45700	45628	gene
 			gene	trnT
-46554	46482	tRNA
+45700	45628	tRNA
 			gene	trnT
 			product	tRNA-Thr
-47028	47708	gene
+46241	46929	gene
 			gene	trnL
-47028	47062	tRNA
-47659	47708
+46241	46275	tRNA
+46880	46929
 			gene	trnL
 			product	tRNA-Leu
-48021	48093	gene
+47244	47316	gene
 			gene	trnF
-48021	48093	tRNA
+47244	47316	tRNA
 			gene	trnF
 			product	tRNA-Phe
-49325	48846	gene
+48385	47906	gene
 			gene	ndhJ
-49325	48846	CDS
+48385	47906	CDS
 			db_xref	GI:659103547
 			codon_start	1
 			protein_id	AID60473.1
 			gene	ndhJ
 			product	NADH dehydrogenase subunit
 			transl_table	11
-50149	49433	gene
+49197	48484	gene
 			gene	ndhK
-50149	49433	CDS
+49197	48484	CDS
 			db_xref	GI:659103548
 			codon_start	1
 			protein_id	AID60474.1
 			gene	ndhK
 			product	photosystem II G protein
 			transl_table	11
-50533	50171	gene
+49581	49219	gene
 			gene	ndhC
-50533	50171	CDS
+49581	49219	CDS
 			db_xref	GI:659103549
 			codon_start	1
 			protein_id	AID60475.1
 			gene	ndhC
 			product	NADH dehydrogenase D3
 			transl_table	11
-52514	51838	gene
+53590	52914	gene
 			gene	trnV
-52514	52476	tRNA
-51872	51838
+53590	53552	tRNA
+52948	52914
 			gene	trnV
 			product	tRNA-Val
-52678	52750	gene
+53754	53826	gene
 			gene	trnM
-52678	52750	tRNA
+53754	53826	tRNA
 			gene	trnM
 			product	tRNA-Met
-53428	53027	gene
-			gene	atpE
-53428	53027	CDS
-			db_xref	GI:659103550
-			codon_start	1
-			protein_id	AID60476.1
-			gene	atpE
-			product	ATPase epsilon subunit
-			transl_table	11
-54921	53425	gene
+55976	54480	gene
 			gene	atpB
-54921	53425	CDS
+55976	54480	CDS
 			db_xref	GI:659103551
 			codon_start	1
 			protein_id	AID60477.1
 			gene	atpB
 			product	ATPase beta subunit
 			transl_table	11
-55716	57143	gene
-			gene	rbcL
-55716	57143	CDS
-			db_xref	GI:659103552
-			codon_start	1
-			protein_id	AID60478.1
-			gene	rbcL
-			product	ribulose bisphosphate carboxylase large chain precursor
-			transl_table	11
-57800	59296	gene
+58817	60313	gene
 			gene	accD
-57800	59296	CDS
+58817	60313	CDS
 			db_xref	GI:659103553
 			codon_start	1
 			protein_id	AID60479.1
 			gene	accD
 			product	carboxytransferase beta subunit
 			transl_table	11
-60008	60121	gene
+60983	61096	gene
 			gene	psaI
-60008	60121	CDS
+60983	61096	CDS
 			db_xref	GI:659103554
 			codon_start	1
 			protein_id	AID60480.1
 			gene	psaI
 			product	PSI I protein
 			transl_table	11
-61479	62165	gene
+62490	63176	gene
 			gene	cemA
-61479	62165	CDS
+62490	63176	CDS
 			db_xref	GI:659103555
 			codon_start	1
 			protein_id	AID60481.1
 			gene	cemA
 			product	envelope membrane protein
 			transl_table	11
-62408	63370	gene
+63393	64355	gene
 			gene	petA
-62408	63370	CDS
+63393	64355	CDS
 			db_xref	GI:659103556
 			codon_start	1
 			protein_id	AID60482.1
 			gene	petA
 			product	apocytochrome f precursor
 			transl_table	11
-64445	64323	gene
-			gene	psbJ
-64445	64323	CDS
-			db_xref	GI:659103557
-			codon_start	1
-			protein_id	AID60483.1
-			gene	psbJ
-			product	photosystem II reaction center J protein
-			transl_table	11
-64771	64655	gene
+65618	65502	gene
 			gene	psbL
-64771	64655	CDS
+65618	65502	CDS
 			db_xref	GI:659103558
 			codon_start	1
 			protein_id	AID60484.1
 			gene	psbL
 			product	PSII L protein
 			transl_table	11
-64923	64804	gene
+65764	65645	gene
 			gene	psbF
-64923	64804	CDS
+65764	65645	CDS
 			db_xref	GI:659103559
 			codon_start	1
 			protein_id	AID60485.1
 			gene	psbF
 			product	PSII cytochrome b559
 			transl_table	11
-65189	64938	gene
+66030	65779	gene
 			gene	psbE
-65189	64938	CDS
+66030	65779	CDS
 			db_xref	GI:659103560
 			codon_start	1
 			protein_id	AID60486.1
 			gene	psbE
 			product	PSII cytochrome b559
 			transl_table	11
-66367	66462	gene
+67260	67355	gene
 			gene	petL
-66367	66462	CDS
+67260	67355	CDS
 			db_xref	GI:659103561
 			codon_start	1
 			protein_id	AID60487.1
 			gene	petL
 			product	cytochrome B6-F complex subunit VI
 			transl_table	11
-66644	66757	gene
+67539	67652	gene
 			gene	petG
-66644	66757	CDS
+67539	67652	CDS
 			db_xref	GI:659103562
 			codon_start	1
 			protein_id	AID60488.1
 			gene	petG
 			product	putative cytochrome B6-F complex subunit 5
 			transl_table	11
-66949	66876	gene
+67842	67769	gene
 			gene	trnW
-66949	66876	tRNA
+67842	67769	tRNA
 			gene	trnW
 			product	tRNA-Trp
-67250	67177	gene
+68136	68063	gene
 			gene	trnP
-67250	67177	tRNA
+68136	68063	tRNA
 			gene	trnP
 			product	tRNA-Pro
-67669	67803	gene
+68563	68697	gene
 			gene	psaJ
-67669	67803	CDS
+68563	68697	CDS
 			db_xref	GI:659103563
 			codon_start	1
 			protein_id	AID60489.1
 			gene	psaJ
 			product	PSI J protein
 			transl_table	11
-68279	68479	gene
+69176	69376	gene
 			gene	rpl33
-68279	68479	CDS
+69176	69376	CDS
 			db_xref	GI:659103564
 			codon_start	1
 			protein_id	AID60490.1
 			gene	rpl33
 			product	ribosomal protein L33
 			transl_table	11
-68683	68988	gene
-			gene	rps18
-68683	68988	CDS
-			db_xref	GI:659103565
-			codon_start	1
-			protein_id	AID60491.1
-			gene	rps18
-			product	ribosomal protein S18
-			transl_table	11
-69637	69284	gene
+70540	70187	gene
 			gene	rpl20
-69637	69284	CDS
+70540	70187	CDS
 			db_xref	GI:659103566
 			codon_start	1
 			protein_id	AID60492.1
 			gene	rpl20
 			product	ribosomal protein L20
 			transl_table	11
-142717	70463	gene
+142717	71347	gene
 			trans_splicing	
 			gene	rps12
-70576	70463	CDS
+71460	71347	CDS
 141924	142154
 142691	142717
 			db_xref	GI:659103567
@@ -514,67 +478,58 @@
 			gene	rps12
 			product	30S ribosomal protein S12
 			transl_table	11
-72808	70774	gene
+73656	71646	gene
 			gene	clpP
-72808	72738	CDS
-71923	71632
-71001	70774
+73656	73586	CDS
+72774	72483
+71873	71646
 			db_xref	GI:659103568
 			codon_start	1
 			protein_id	AID60494.1
 			gene	clpP
 			product	ATP-dependent CLP protease proteolytic subunit
 			transl_table	11
-73334	74860	gene
+74177	75703	gene
 			gene	psbB
-73334	74860	CDS
+74177	75703	CDS
 			db_xref	GI:659103569
 			codon_start	1
 			protein_id	AID60495.1
 			gene	psbB
 			product	PSII 47kDa protein
 			transl_table	11
-75058	75165	gene
-			gene	psbT
-75058	75165	CDS
-			db_xref	GI:659103570
-			codon_start	1
-			protein_id	AID60496.1
-			gene	psbT
-			product	photosystem II reaction center T protein
-			transl_table	11
-75357	75226	gene
+76177	76046	gene
 			gene	psbN
-75357	75226	CDS
+76177	76046	CDS
 			db_xref	GI:659103571
 			codon_start	1
 			protein_id	AID60497.1
 			gene	psbN
 			product	photosystem II reaction center N protein
 			transl_table	11
-75479	75700	gene
+76300	76521	gene
 			gene	psbH
-75479	75700	CDS
+76300	76521	CDS
 			db_xref	GI:659103572
 			codon_start	1
 			protein_id	AID60498.1
 			gene	psbH
 			product	PSII 10KDa phosphoprotein
 			transl_table	11
-75835	77292	gene
+76656	78122	gene
 			gene	petB
-75835	75840	CDS
-76651	77292
+76656	76661	CDS
+77481	78122
 			db_xref	GI:659103573
 			codon_start	1
 			protein_id	AID60499.1
 			gene	petB
 			product	cytochrome b6
 			transl_table	11
-77519	78811	gene
+78342	79636	gene
 			gene	petD
-77519	77527	CDS
-78323	78811
+78342	78350	CDS
+79148	79636
 			db_xref	GI:659103574
 			codon_start	1
 			protein_id	AID60500.1
@@ -582,115 +537,97 @@
 			product	cytochrome b6-f complex subunit 4
 			note	17 kD polypeptide; cytochrome b/f complex subunit IV
 			transl_table	11
-79967	78948	gene
-			gene	rpoA
-79967	78948	CDS
-			db_xref	GI:659103575
-			codon_start	1
-			protein_id	AID60501.1
-			gene	rpoA
-			product	RNA polymerase alpha subunit
-			transl_table	11
-80454	80038	gene
+81337	80921	gene
 			gene	rps11
-80454	80038	CDS
+81337	80921	CDS
 			db_xref	GI:659103576
 			codon_start	1
 			protein_id	AID60502.1
 			gene	rps11
 			product	ribosomal protein S11
 			transl_table	11
-80675	80562	gene
-			gene	rpl36
-80675	80562	CDS
-			db_xref	GI:659103577
-			codon_start	1
-			protein_id	AID60503.1
-			gene	rpl36
-			product	ribosomal protein L36
-			transl_table	11
-81569	81165	gene
+82473	82069	gene
 			gene	rps8
-81569	81165	CDS
+82473	82069	CDS
 			db_xref	GI:659103578
 			codon_start	1
 			protein_id	AID60504.1
 			gene	rps8
 			product	ribosomal protein S8
 			transl_table	11
-82181	81813	gene
+83102	82734	gene
 			gene	rpl14
-82181	81813	CDS
+83102	82734	CDS
 			db_xref	GI:659103579
 			codon_start	1
 			protein_id	AID60505.1
 			gene	rpl14
 			product	ribosomal protein L14
 			transl_table	11
-83837	82315	gene
+84704	83231	gene
 			gene	rpl16
-83837	83829	CDS
-82713	82315
+84704	84696	CDS
+83629	83231
 			db_xref	GI:659103580
 			codon_start	1
 			protein_id	AID60506.1
 			gene	rpl16
 			product	ribosomal protein L16
 			transl_table	11
-84682	84026	gene
+85533	84877	gene
 			gene	rps3
-84682	84026	CDS
+85533	84877	CDS
 			db_xref	GI:659103581
 			codon_start	1
 			protein_id	AID60507.1
 			gene	rps3
 			product	ribosomal protein S3
 			transl_table	11
-85180	84782	gene
+86031	85633	gene
 			gene	rpl22
-85180	84782	CDS
+86031	85633	CDS
 			db_xref	GI:659103582
 			codon_start	1
 			protein_id	AID60508.1
 			gene	rpl22
 			product	50S ribosomal protein L22
 			transl_table	11
-85627	85349	gene
+86454	86176	gene
 			gene	rps19
-85627	85349	CDS
+86454	86176	CDS
 			db_xref	GI:659103583
 			codon_start	1
 			protein_id	AID60509.1
 			gene	rps19
 			product	30S ribosomal protein S19
 			transl_table	11
-87181	85689	gene
+88016	86518	gene
 			gene	rpl2
-87181	86792	CDS
-86123	85689
+88016	87621	CDS
+86952	86518
 			db_xref	GI:659103584
 			codon_start	1
 			protein_id	AID60510.1
 			gene	rpl2
 			product	50S ribosomal protein L2
 			transl_table	11
-87481	87200	gene
+88316	88035	gene
 			gene	rpl23
-87481	87200	CDS
+88316	88035	CDS
 			db_xref	GI:659103585
 			codon_start	1
 			protein_id	AID60511.1
 			gene	rpl23
 			product	60S ribosomal protein L23
 			transl_table	11
-87720	87647	gene
+88555	88482	gene
 			gene	trnI-CAU
-87720	87647	tRNA
+88555	88482	tRNA
 			gene	trnI-CAU
 			product	tRNA-Ile
-87815	94672	gene
+88650	95507	gene
 			gene	ycf2
-87815	94672	CDS
+88650	95507	CDS
 			db_xref	GI:659103586
 			codon_start	1
 			protein_id	AID60512.1
@@ -698,257 +635,201 @@
 			product	Ycf2
 			note	hypothetical 268 kDa protein; ORF 2285; similar to FtsH-like cell division protein
 			transl_table	11
-95794	95714	gene
+96613	96533	gene
 			gene	trnL
-95794	95714	tRNA
+96613	96533	tRNA
 			gene	trnL
 			product	tRNA-Leu
-98588	96374	gene
+99418	97204	gene
 			gene	ndhB
-98588	97812	CDS
-97129	96374
+99418	98642	CDS
+97959	97204
 			db_xref	GI:659103587
 			codon_start	1
 			protein_id	AID60513.1
 			gene	ndhB
 			product	NADH-plastoquinone oxidoreductase chain 2
 			transl_table	11
-99387	98920	gene
-			gene	rps7
-99387	98920	CDS
-			db_xref	GI:659103588
-			codon_start	1
-			protein_id	AID60514.1
-			gene	rps7
-			product	30S ribosomal protein S7
-			transl_table	11
-102100	102171	gene
+102531	102602	gene
 			gene	trnV
-102100	102171	tRNA
+102531	102602	tRNA
 			gene	trnV
 			product	tRNA-Val
-102397	103887	gene
+102828	104318	gene
 			gene	rrn16
-102397	103887	rRNA
+102828	104318	rRNA
 			gene	rrn16
 			product	16S ribosomal RNA
-104206	105227	gene
+104625	104661	gene
 			gene	trnI
-104206	104242	tRNA
-105193	105227
+104625	104661	tRNA
 			gene	trnI
 			product	tRNA-Ile
-105294	106171	gene
+105709	106586	gene
 			gene	trnA
-105294	105331	tRNA
-106137	106171
+105709	105746	tRNA
+106552	106586
 			gene	trnA
 			product	tRNA-Ala
-106299	109107	gene
+106714	109522	gene
 			gene	rrn23
-106299	109107	rRNA
+106714	109522	rRNA
 			gene	rrn23
 			product	23S ribosomal RNA
-109206	109308	gene
+109621	109723	gene
 			gene	rrn4.5
-109206	109308	rRNA
+109621	109723	rRNA
 			gene	rrn4.5
 			product	4.5S ribosomal RNA
-109536	109656	gene
+109951	110071	gene
 			gene	rrn5
-109536	109656	rRNA
+109951	110071	rRNA
 			gene	rrn5
 			product	5S ribosomal RNA
-109903	109976	gene
+110320	110393	gene
 			gene	trnR
-109903	109976	tRNA
+110320	110393	tRNA
 			gene	trnR
 			product	tRNA-Arg
-110739	110668	gene
+111057	110986	gene
 			gene	trnN
-110739	110668	tRNA
+111057	110986	tRNA
 			gene	trnN
 			product	tRNA-Asn
-115173	112891	gene
-			gene	ndhF
-115173	112891	CDS
-			db_xref	GI:659103589
-			codon_start	1
-			protein_id	AID60515.1
-			gene	ndhF
-			product	NADH-plastoquinone oxidoreductase chain 5
-			transl_table	11
-115744	115823	gene
+115986	116065	gene
 			gene	trnL
-115744	115823	tRNA
+115986	116065	tRNA
 			gene	trnL
 			product	tRNA-Leu
-115946	116911	gene
-			gene	ccsA
-115946	116911	CDS
-			db_xref	GI:659103590
-			codon_start	1
-			protein_id	AID60516.1
-			gene	ccsA
-			product	cytochrome c biogenesis protein
-			transl_table	11
-118687	117167	gene
+118867	117347	gene
 			gene	ndhD
-118687	117167	CDS
+118867	117347	CDS
 			db_xref	GI:659103591
 			codon_start	1
 			protein_id	AID60517.1
 			gene	ndhD
 			product	NADH-plastoquinone oxidoreductase chain 4
 			transl_table	11
-119061	118816	gene
-			gene	psaC
-119061	118816	CDS
-			db_xref	GI:659103592
-			codon_start	1
-			protein_id	AID60518.1
-			gene	psaC
-			product	photosystem I iron-sulfur center
-			note	photosystem I subunit VII; 9 kDA polypeptide; PSI-C
-			transl_table	11
-119610	119305	gene
+119782	119477	gene
 			gene	ndhE
-119610	119305	CDS
+119782	119477	CDS
 			db_xref	GI:659103593
 			codon_start	1
 			protein_id	AID60519.1
 			gene	ndhE
 			product	NADH-plastoquinone oxidoreductase chain 4L
 			transl_table	11
-120368	119838	gene
+120544	120014	gene
 			gene	ndhG
-120368	119838	CDS
+120544	120014	CDS
 			db_xref	GI:659103594
 			codon_start	1
 			protein_id	AID60520.1
 			gene	ndhG
 			product	NADH-plastoquinone oxidoreductase chain 6
 			transl_table	11
-121318	120788	gene
+121488	120958	gene
 			gene	ndhI
-121318	120788	CDS
+121488	120958	CDS
 			db_xref	GI:659103595
 			codon_start	1
 			protein_id	AID60521.1
 			gene	ndhI
 			product	NADH-plastoquinone oxidoreductase SU I
 			transl_table	11
-123621	121399	gene
+123750	121569	gene
 			gene	ndhA
-123621	123070	CDS
-121944	121399
+123750	123199	CDS
+122114	121569
 			db_xref	GI:659103596
 			codon_start	1
 			protein_id	AID60522.1
 			gene	ndhA
 			product	NADH-plastoquinone oxidoreductase chain 1
 			transl_table	11
-124804	123623	gene
+124933	123752	gene
 			gene	ndhH
-124804	123623	CDS
+124933	123752	CDS
 			db_xref	GI:659103597
 			codon_start	1
 			protein_id	AID60523.1
 			gene	ndhH
 			product	NADH-plastoquinone oxidoreductase 49 KD subunit
 			transl_table	11
-125188	124916	gene
+125319	125047	gene
 			gene	rps15
-125188	124916	CDS
+125319	125047	CDS
 			db_xref	GI:659103598
 			codon_start	1
 			protein_id	AID60524.1
 			gene	rps15
 			product	30S ribosomal protein S15
 			transl_table	11
-131088	125620	gene
-			gene	ycf1
-131088	125620	CDS
-			db_xref	GI:659103599
-			codon_start	1
-			protein_id	AID60525.1
-			gene	ycf1
-			product	Ycf1
-			transl_table	11
-131424	131495	gene
+131544	131615	gene
 			gene	trnN
-131424	131495	tRNA
+131544	131615	tRNA
 			gene	trnN
 			product	tRNA-Asn
-132260	132187	gene
+132281	132208	gene
 			gene	trnR
-132260	132187	tRNA
+132281	132208	tRNA
 			gene	trnR
 			product	tRNA-Arg
-132627	132507	gene
+132650	132530	gene
 			gene	rrn5
-132627	132507	rRNA
+132650	132530	rRNA
 			gene	rrn5
 			product	5S ribosomal RNA
-132957	132855	gene
+132980	132878	gene
 			gene	rrn4.5
-132957	132855	rRNA
+132980	132878	rRNA
 			gene	rrn4.5
 			product	4.5S ribosomal RNA
-135864	133056	gene
+135887	133079	gene
 			gene	rrn23
-135864	133056	rRNA
+135887	133079	rRNA
 			gene	rrn23
 			product	23S ribosomal RNA
-136891	136017	gene
+136914	136040	gene
 			gene	trnA
-136891	136854	tRNA
-136051	136017
+136914	136877	tRNA
+136074	136040
 			gene	trnA
 			product	tRNA-Ala
-137980	136961	gene
+137999	136979	gene
 			gene	trnI
-137980	137944	tRNA
-136995	136961
+137999	137963	tRNA
+137013	136979
 			gene	trnI
 			product	tRNA-Ile
-139766	138276	gene
+139773	138283	gene
 			gene	rrn16
-139766	138276	rRNA
+139773	138283	rRNA
 			gene	rrn16
 			product	16S ribosomal RNA
-140063	139992	gene
+140070	139999	gene
 			gene	trnV
-140063	139992	tRNA
+140070	139999	tRNA
 			gene	trnV
 			product	tRNA-Val
-142776	143243	gene
-			gene	rps7
-142776	143243	CDS
-			db_xref	GI:659103600
-			codon_start	1
-			protein_id	AID60526.1
-			gene	rps7
-			product	30S ribosomal protein S7
-			transl_table	11
-143575	145789	gene
+143183	145397	gene
 			gene	ndhB
-143575	144351	CDS
-145034	145789
+143183	143959	CDS
+144642	145397
 			db_xref	GI:659103601
 			codon_start	1
 			protein_id	AID60527.1
 			gene	ndhB
 			product	NADH-plastoquinone oxidoreductase chain 2
 			transl_table	11
-146369	146449	gene
+145988	146068	gene
 			gene	trnL
-146369	146449	tRNA
+145988	146068	tRNA
 			gene	trnL
 			product	tRNA-Leu
-154348	147491	gene
+153951	147094	gene
 			gene	ycf2
-154348	147491	CDS
+153951	147094	CDS
 			db_xref	GI:659103602
 			codon_start	1
 			protein_id	AID60528.1
@@ -956,42 +837,42 @@
 			product	Ycf2
 			note	hypothetical 268 kDa protein; ORF 2285; similar to FtsH-like cell division protein
 			transl_table	11
-154443	154516	gene
+154046	154119	gene
 			gene	trnI-CAU
-154443	154516	tRNA
+154046	154119	tRNA
 			gene	trnI-CAU
 			product	tRNA-Ile
-154682	154963	gene
+154285	154566	gene
 			gene	rpl23
-154682	154963	CDS
+154285	154566	CDS
 			db_xref	GI:659103603
 			codon_start	1
 			protein_id	AID60529.1
 			gene	rpl23
 			product	60S ribosomal protein L23
 			transl_table	11
-154982	156474	gene
+154585	156083	gene
 			gene	rpl2
-154982	155371	CDS
-156040	156474
+154585	154980	CDS
+155649	156083
 			db_xref	GI:659103604
 			codon_start	1
 			protein_id	AID60530.1
 			gene	rpl2
 			product	50S ribosomal protein L2
 			transl_table	11
-156536	156814	gene
+156147	156425	gene
 			gene	rps19
-156536	156814	CDS
+156147	156425	CDS
 			db_xref	GI:659103605
 			codon_start	1
 			protein_id	AID60531.1
 			gene	rps19
 			product	30S ribosomal protein S19
 			transl_table	11
-129382	157033	repeat_region
+129454	156620	repeat_region
 			rpt_type	inverted
 			note	inverted repeat A
-85130	112781	repeat_region
+85981	113147	repeat_region
 			rpt_type	inverted
 			note	inverted repeat B

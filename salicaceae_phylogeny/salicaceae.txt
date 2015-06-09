@@ -1,15 +1,11 @@
 1DNA	2samplename	3aTRAM	4server	5BAMpath
 603	Aza_dent_603	~/Populus/TRAM/plastome/Aza_dent_DNA603/Aza_dent_DNA603.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0395/D15NHACXX_8/IX0395_D15NHACXX_8_TCGGCA.bam
-604	Aza_ente_604	~/Populus/TRAM/plastome/Aza_ente_DNA604/Aza_ente_DNA604.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-11/IX0990/D1C4AACXX_8/IX0990_D1C4AACXX_8_ATGAGC.bam
 605	Aza_lanc_605	~/Populus/TRAM/plastome/Aza_lanc_DNA605/Aza_lanc_DNA605.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0395/D15NHACXX_8/IX0395_D15NHACXX_8_AGGTTT.bam
-593	Aza_micr_593	~/Populus/TRAM/plastome/Aza_micr_DNA593/Aza_micr_DNA593.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0394/D15NHACXX_7/IX0394_D15NHACXX_7_ATGAGC.bam
 598	Car_caly_598	~/Populus/TRAM/plastome/Car_caly_DNA598/Car_caly_DNA598.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0395/D15NHACXX_8/IX0395_D15NHACXX_8_GGCACA.bam
 621	Ide_poly_621	~/Populus/TRAM/plastome/Ide_poly_DNA621/Ide_poly_DNA621.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-10-12/IX0981/D18W4ACXX_3/IX0981_D18W4ACXX_3_GACGGA.bam
 615	Olm_bets_615	~/Populus/TRAM/plastome/Olm_bets_DNA615/Olm_bets_DNA615.stram	east	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-20/IX0396/C10F0ACXX_7/IX0396_C10F0ACXX_7_AGCATC.bam
 614	Pol_sine_614	~/Populus/TRAM/plastome/Pol_sine_DNA614/Pol_sine_DNA614.stram	east	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-20/IX0396/C10F0ACXX_7/IX0396_C10F0ACXX_7_ACATCT.bam
-216	Pop_gran_216	~/Populus/TRAM/plastome/Pop_gran/Pop_gran_DNA216	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-11/INX976/C0KV7ACXX_3/INX976_C0KV7ACXX_3_ACTTGA.bam
 620	Pop_tome_620	~/Populus/TRAM/plastome/Pop_tome_DNA620/Pop_tome_DNA620.stram	east	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-21/IX0397/C10F0ACXX_8/IX0397_C10F0ACXX_8_CGGAAT.bam
-221	Pop_trem_221	~/Populus/TRAM/plastome/Pop_trem_DNA221/Pop_trem_DNA221.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-11/INX977/C0KV7ACXX_4/INX977_C0KV7ACXX_4_AGCATC.bam
 153	Pop_tric_153	~/Populus/TRAM/plastome/Pop_tric/Pop_tric_DNA153.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-04-03/INX950/C0KW2ACXX_6/INX950_C0KW2ACXX_6_GCACTT.bam
 591	Sal_erio_591	~/Populus/TRAM/plastome/Sal_erio/Sal_erio_DNA591.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0393/C10ERACXX_5/IX0393_C10ERACXX_5_ACAAAC.bam
 592	Sal_inte_592	~/Populus/TRAM/plastome/Sal_inte_DNA592/Sal_inte_DNA592.stram	west	/data/raid50/GalaxyData/Populus/PopulusTrichocarpa/DNA/2012-08-17/IX0393/C10ERACXX_5/IX0393_C10ERACXX_5_AGATAG.bam

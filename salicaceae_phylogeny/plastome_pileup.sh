@@ -48,16 +48,5 @@ cd ..
 # trim missing data at the 0.1 missing threshold:
 perl $REPOS/phylogenomics/parsing/trim_missing.pl -in $OUTNAME.fasta -out $OUTNAME.trimmed -row 1.0 -col 0.1
 
-# convert to phylip
-perl $REPOS/phylogenomics/converting/convert_file.pl $OUTNAME.trimmed.fasta $OUTNAME.phy
-
-# run RAxML
-seed=$RANDOM
-cd $RESULTDIR
-raxmlHPC-PTHREADS -fa -s ../$OUTNAME.phy -x $seed -# 100 -m GTRGAMMA -n $seed -T 16 -p $seed
-cd ..
-
-# write the final tree to a nexus file:
-printf "#NEXUS\n\nbegin TREES;\ntree best=\n" > $OUTNAME.tre;
-cat $RESULTDIR/RAxML_bipartitions.$seed >> $OUTNAME.tre;
-printf "end;" >> $OUTNAME.tre;
+# run RAxML:
+perl $REPOS/phylogenomics/parsing/raxml.pl -input $OUTNAME.trimmed.fasta -output $OUTNAME

@@ -22,3 +22,7 @@ head -n 2 *.results.txt > all_results.txt
 
 echo "Running tbl2asn"
 tbl2asn -Vbv -p . -t plann.sbt
+
+# library(ggplot2)
+# data <- read.table("~/Documents/DRAFTS/plann/results.tsv")
+# ggplot(data) + geom_point(shape=3,color="black",aes(x=1:5,y=P_balsamifera)) + geom_point(shape=3,color="red",aes(x=1:5,y=P_trichocarpa)) + geom_point(shape=3,color="green",aes(x=1:5,y=P_fremontii)) + geom_point(shape=3,color="orange",aes(x=1:5,y=Salix_interior)) + geom_point(shape=3,color="blue",aes(x=1:5,y=Jatropha_curcas)) +  scale_x_discrete(labels=row.names(data)) + theme(axis.text.x = element_text(angle = 90, hjust = 1))

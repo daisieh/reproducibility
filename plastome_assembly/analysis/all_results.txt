@@ -1,0 +1,6 @@
+GB	balsamifera.fa	fremontii.fa	jatropha.fa	salix.fa	trichocarpa.fa
+balsamifera	129	129	88	115	129
+fremontii	127	129	88	114	129
+jatropha	90	90	130	84	90
+salix	115	116	84	127	116
+trichocarpa	141	144	92	126	146

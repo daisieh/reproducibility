@@ -36,13 +36,13 @@ cp Manihot_cp.fasta $RESULTDIR/
 cd $RESULTDIR
 # index the Manihot file
 bwa index Manihot_cp.fasta
-bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt Manihot_cp.fasta
+bash $REPOS/phylogenomics/pipelines/bam_to_plastome_vcf.sh ../$OUTNAME.1.txt Manihot_cp.fasta 80000000
 cd ..
 
 # convert the vcfs to fasta:
 gawk -F " " '{print $2".vcf"}' $OUTNAME.0.txt > $OUTNAME.2.txt
 cd $RESULTDIR
-perl $REPOS/phylogenomics/converting/vcf2fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 300
+perl $REPOS/phylogenomics/converting/vcf_to_fasta.pl -samples ../$OUTNAME.2.txt -output ../$OUTNAME -thresh 0 -cov 300
 cd ..
 
 # trim missing data at the 0.1 missing threshold:
